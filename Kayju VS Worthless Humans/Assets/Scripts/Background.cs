@@ -2,10 +2,8 @@
 using System.Collections;
 
 public class Background : MonoBehaviour {
-    public float scrollingSpeed;
     bool hasBeenSeen;
     void Start() {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1) * scrollingSpeed;
         hasBeenSeen = false;
     }
 
@@ -15,7 +13,9 @@ public class Background : MonoBehaviour {
 
     void OnBecameInvisible() {
         if (hasBeenSeen) {
-            gameObject.transform.position = new Vector3(0, 10, 10);
+            Debug.Log(gameObject.transform.position);
+            gameObject.transform.position = new Vector3(0,10,10);
+            Debug.Log(gameObject.transform.position);
         }
     }
 }
