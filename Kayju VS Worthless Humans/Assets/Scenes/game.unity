@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a097449c909b037448203ed940bb84fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadSpeed: .100000001
+  reloadSpeed: .200000003
   value: 0
 --- !u!1 &301174245
 GameObject:
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a097449c909b037448203ed940bb84fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadSpeed: .100000001
+  reloadSpeed: .200000003
   value: 0
 --- !u!1 &354733814
 GameObject:
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a097449c909b037448203ed940bb84fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadSpeed: .100000001
+  reloadSpeed: .200000003
   value: 0
 --- !u!4 &716602267 stripped
 Transform:
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a097449c909b037448203ed940bb84fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadSpeed: .100000001
+  reloadSpeed: .200000003
   value: 0
 --- !u!4 &1533912223
 Transform:
@@ -661,14 +661,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5003276, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
-      propertyPath: bilePrefab
+      propertyPath: scene
       value: 
-      objectReference: {fileID: 415366, guid: 41a6288cf3f456547bebe63debdafd10, type: 2}
+      objectReference: {fileID: 1611190516}
     - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
       propertyPath: stompStamina
       value: 
@@ -686,11 +682,10 @@ Prefab:
       value: 
       objectReference: {fileID: 301174247}
     - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
-      propertyPath: scene
-      value: 
-      objectReference: {fileID: 1611190516}
-    m_RemovedComponents:
-    - {fileID: 21232756, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
+      propertyPath: laserRandomForce
+      value: 100
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1636967746

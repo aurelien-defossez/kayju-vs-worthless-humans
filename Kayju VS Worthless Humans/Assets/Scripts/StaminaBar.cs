@@ -7,7 +7,7 @@ public class StaminaBar : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        value = KaijuDebug.instance.infiniteStamina ? 1 : 0;
+		value = 1;
     }
 
     // Update is called once per frame
