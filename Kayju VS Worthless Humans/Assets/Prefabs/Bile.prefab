@@ -11,8 +11,9 @@ GameObject:
   - 114: {fileID: 11413422}
   - 114: {fileID: 11480538}
   - 58: {fileID: 5814810}
-  - 212: {fileID: 21294932}
   - 82: {fileID: 8236018}
+  - 212: {fileID: 21244420}
+  - 95: {fileID: 9515108}
   m_Layer: 13
   m_Name: Bile
   m_TagString: Untagged
@@ -115,6 +116,23 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!95 &9515108
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193148}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73dd5380646e95842be22ca07a44bb18, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11413422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,7 +178,7 @@ MonoBehaviour:
     parameter: 0
     started: 0
     finished: 0
---- !u!212 &21294932
+--- !u!212 &21244420
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -184,8 +202,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: .189051092, g: .742647052, b: .169279829, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
