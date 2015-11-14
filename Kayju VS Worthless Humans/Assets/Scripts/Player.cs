@@ -12,16 +12,14 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start () {
         body = GetComponent<Rigidbody2D>();
-	}
+        input_x += player;
+        input_y += player;
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (player >= 2 && player <= 4)
-        {
-            input_x += player;
-            input_y += player;
             body.velocity = new Vector2(Input.GetAxis(input_y), Input.GetAxis(input_x)) * 5;
-        }
     }
 }
