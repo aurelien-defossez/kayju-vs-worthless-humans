@@ -73,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   stompPrefab: {fileID: 418160, guid: 5544b6cf0d4aa8d49a8b39072f20c17d, type: 2}
+  bilePrefab: {fileID: 0}
 --- !u!212 &21232756
 SpriteRenderer:
   m_ObjectHideFlags: 1

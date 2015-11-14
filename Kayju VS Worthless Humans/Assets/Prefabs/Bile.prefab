@@ -77,8 +77,15 @@ MonoBehaviour:
   actions:
   - script: {fileID: 11413422}
     method: Hit
-    from: 0
-    to: 0
+    from: .5
+    to: .5
+    parameter: 0
+    started: 0
+    finished: 0
+  - script: {fileID: 11413422}
+    method: Shutdown
+    from: 4
+    to: 4
     parameter: 0
     started: 0
     finished: 0
