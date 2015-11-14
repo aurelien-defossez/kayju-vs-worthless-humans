@@ -10,7 +10,9 @@ GameObject:
   - 4: {fileID: 418160}
   - 114: {fileID: 11488294}
   - 114: {fileID: 11438312}
-  m_Layer: 0
+  - 58: {fileID: 5861724}
+  - 58: {fileID: 5864834}
+  m_Layer: 14
   m_Name: Stomp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +28,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 454596}
   - 212: {fileID: 21299192}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,6 +60,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 418160}
   m_RootOrder: 0
+--- !u!58 &5861724
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120624}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
+--- !u!58 &5864834
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120624}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!114 &11438312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,9 +112,23 @@ MonoBehaviour:
     started: 0
     finished: 0
   - script: {fileID: 11488294}
-    method: Shutdown
+    method: Hit
     from: 2
     to: 2
+    parameter: 0
+    started: 0
+    finished: 0
+  - script: {fileID: 11488294}
+    method: HitEnd
+    from: 2.0999999
+    to: 2.0999999
+    parameter: 0
+    started: 0
+    finished: 0
+  - script: {fileID: 11488294}
+    method: Shutdown
+    from: 3
+    to: 3
     parameter: 0
     started: 0
     finished: 0
@@ -102,11 +144,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadow: {fileID: 454596}
-  maxSize: 10
+  maxSize: 30
   timeline: {fileID: 11438312}
   shadowOpacity:
     from: 0
     to: .5
+  hitCollider: {fileID: 5861724}
+  blockCollider: {fileID: 5864834}
 --- !u!212 &21299192
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -143,6 +187,34 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: hitCollider
+      value: 
+      objectReference: {fileID: 5861724}
+    - target: {fileID: 0}
+      propertyPath: blockCollider
+      value: 
+      objectReference: {fileID: 5864834}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

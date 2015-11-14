@@ -8,6 +8,9 @@ public class Stomp : MonoBehaviour {
     public float maxSize;
     public Timeline timeline;
     public Range shadowOpacity;
+    public CircleCollider2D hitCollider;
+    public CircleCollider2D blockCollider;
+
 
     private SpriteRenderer shadowSprite;
 
@@ -21,6 +24,17 @@ public class Stomp : MonoBehaviour {
     public void GrowShadow(TimelineCall options) {
         shadow.localScale = new Vector2(1, 1) * options.progress * maxSize;
         shadowSprite.color = shadowSprite.color.A(shadowOpacity.Lerp(options.progress));
+    }
+    [TimelineMethod]
+    public void Hit(TimelineCall options)
+    {
+        hitCollider.enabled=true;
+    }
+    [TimelineMethod]
+    public void HitEnd(TimelineCall options)
+    {
+        hitCollider.enabled = false;
+        blockCollider.enabled = true;
     }
 
     [TimelineMethod]
