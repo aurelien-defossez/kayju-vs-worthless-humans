@@ -5,6 +5,7 @@ public class KaijuCursor : MonoBehaviour
 {
     Rigidbody2D body;
     public float speed;
+	public float laserSpeedModifier;
     public Transform stompPrefab;
     public Transform bilePrefab;
 	public Transform laserPrefab;
@@ -54,7 +55,12 @@ public class KaijuCursor : MonoBehaviour
 				Debug.Log("Kaiju_Fire");
 			}
 
-			body.velocity = (new Vector2(Input.GetAxis("Horizontal_Kaiju"), Input.GetAxis("Vertical_Kaiju")) * speed);
+			Vector2 direction = new Vector2(Input.GetAxis("Horizontal_Kaiju"), Input.GetAxis("Vertical_Kaiju"));
+            body.velocity = direction * speed;
+
+			if (laser != null) {
+				body.velocity *= laserSpeedModifier;
+			}
         }
 	}
 }
