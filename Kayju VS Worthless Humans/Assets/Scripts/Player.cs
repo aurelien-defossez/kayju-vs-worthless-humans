@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
 	int layerLaser;
     public Transform BloodStain;
     public Transform Grill;
+    GameObject ScoreBoard;
 
     public float angle;
     // Use this for initialization
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour {
 		layerBile = LayerMask.NameToLayer("Bile");
 		layerLaser = LayerMask.NameToLayer("Laser");
 		speed = initialSpeed;
+        ScoreBoard = GameObject.Find("Score");
 
         #region Kaiju_player
         if (KaijuDebug.instance.firstPlayerIsHuman) {
@@ -107,6 +109,7 @@ public class Player : MonoBehaviour {
             corpse = (Transform)Instantiate(Grill);
             corpse.position = this.transform.position.Z(6);
         }
+        ScoreBoard.GetComponent<ScoringBoard>().score["Kaiju"] += 1;
         // Death animation goes here, parameter defines which one is played.
         Destroy(gameObject);
     }
