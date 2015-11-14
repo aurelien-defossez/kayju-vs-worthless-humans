@@ -20,6 +20,7 @@ public class Stomp : MonoBehaviour {
     public void Start() {
         shadowSprite = shadow.GetComponent<SpriteRenderer>();
 		initialFistPosition = fist.position;
+		transform.position = transform.position.Z(0);
 
         timeline.Play();
 
@@ -34,8 +35,10 @@ public class Stomp : MonoBehaviour {
 
 	[TimelineMethod]
 	public void MoveFist(TimelineCall options) {
-		fist.position = Vector2.Lerp(initialFistPosition, transform.position,
+		Vector2 position2d = Vector2.Lerp(initialFistPosition, transform.position,
 			options.parameter == 0 ? options.progress : 1 - options.progress);
+
+        fist.position = new Vector3(position2d.x, position2d.y, 1);
 	}
 
 	[TimelineMethod]
