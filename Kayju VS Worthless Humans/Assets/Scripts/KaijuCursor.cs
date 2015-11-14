@@ -50,7 +50,8 @@ public class KaijuCursor : MonoBehaviour {
                 Transform laserTransform = (Transform)Instantiate(laserPrefab);
 				laserTransform.position = this.transform.position;
 				laser = (Laser)laserTransform.GetComponent<Laser>();
-				randomLaserVelocity = Quaternion.Euler(0, 0, Random.value * 360) * Vector2.up * laserRandomForce;
+				laser.scene = scene;
+                randomLaserVelocity = Quaternion.Euler(0, 0, Random.value * 360) * Vector2.up * laserRandomForce;
             }
 
             if (laser != null) {
