@@ -22,4 +22,10 @@ public class Player : MonoBehaviour {
         if (player >= 2 && player <= 4)
             body.velocity = new Vector2(Input.GetAxis(input_x), Input.GetAxis(input_y)) * 5;
     }
+
+    void Die_Human(int death = 0)
+    {
+        // Death anoimation goes here, parameter defines which one is played.
+        Destroy(gameObject);
+    }
 }
