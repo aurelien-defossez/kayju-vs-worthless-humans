@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
     public Transform BloodStain;
     public Transform Grill;
 
+    public float angle;
     // Use this for initialization
     void Start() {
         anim = GetComponent<Animator>();
@@ -43,25 +44,28 @@ public class Player : MonoBehaviour {
     void Update()
     {
         Vector2 pos = new Vector2(Input.GetAxis(input_x), Input.GetAxis(input_y)) * 5;
-        float   angle = Vector2.Angle(Vector2.up, pos);
+         angle = Vector2.Angle(Vector2.up, pos);
 
         if (player >= 2 && player <= 4)
             body.velocity = pos;
 
-        if (angle <= 45.0)
-            anim.SetTrigger(Animator.StringToHash("Dos"));
-        else if (angle >= 135.0)
-            anim.SetTrigger(Animator.StringToHash("Face"));
-        else
+        if (pos.magnitude > 0)
         {
-            anim.SetTrigger("Coté");
-            if (Input.GetAxis(input_x) > 0)
-                if (obj.localScale.x < 0)
-                    obj.localScale = Vector3.Scale(obj.localScale, new Vector3(-1, 1, 1));
-            if (Input.GetAxis(input_x) < 0)
-                if (obj.localScale.x > 0)
-                    obj.localScale = Vector3.Scale(obj.localScale, new Vector3(-1, 1, 1));
+            if (angle <= 45.0)
+                anim.SetTrigger(Animator.StringToHash("Dos"));
+            else if (angle >= 135.0)
+                anim.SetTrigger(Animator.StringToHash("Face"));
+            else
+            {
+                anim.SetTrigger("Coté");
+                if (Input.GetAxis(input_x) > 0)
+                    if (obj.localScale.x < 0)
+                        obj.localScale = Vector3.Scale(obj.localScale, new Vector3(-1, 1, 1));
+                if (Input.GetAxis(input_x) < 0)
+                    if (obj.localScale.x > 0)
+                        obj.localScale = Vector3.Scale(obj.localScale, new Vector3(-1, 1, 1));
 
+            }
         }
     }
 
