@@ -20,6 +20,6 @@ public class Player : MonoBehaviour {
     void Update()
     {
         if (player >= 2 && player <= 4)
-            body.velocity = new Vector2(Input.GetAxis(input_y), Input.GetAxis(input_x)) * 5;
+            body.velocity = new Vector2(Input.GetAxis(input_x), Input.GetAxis(input_y)) * 5;
     }
 }
