@@ -6,6 +6,7 @@ public class KaijuCursor : MonoBehaviour
     Rigidbody2D body;
     public float speed;
     public Transform stompPrefab;
+    public Transform bilePrefab;
     // Use this for initialization
     void Start()
     {
@@ -22,10 +23,12 @@ public class KaijuCursor : MonoBehaviour
 			}
 			if (Input.GetButtonDown("Kaiju_Laser")) {
 				Debug.Log("Kaiju_Laser");
-			}
+            }
 			if (Input.GetButtonDown("Kaiju_Bile")) {
 				Debug.Log("Kaiju_Bile");
-			}
+                Transform bile = (Transform)Instantiate(bilePrefab);
+                bile.position = this.transform.position;
+            }
 			if (Input.GetButtonDown("Kaiju_Fire")) {
 				Debug.Log("Kaiju_Fire");
 			}
