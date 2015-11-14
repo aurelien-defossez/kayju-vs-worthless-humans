@@ -4,19 +4,22 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     public float initialSpeed;
-    Transform       obj;
-    Animator        anim;
-    Rigidbody2D     body;
-    public float    speed;
-    public int      player;
-    string          input_x = "Horizontal_J";
-    string          input_y = "Vertical_J";
-    int             layerStomp;
-	int layerBile;
-	int layerLaser;
+    public Transform scene;
+    Transform obj;
+    Animator anim;
+    Rigidbody2D body;
+    public float speed;
+    public int player;
+    string input_x = "Horizontal_J";
+    string input_y = "Vertical_J";
+    int layerStomp;
+    int layerBile;
+    int layerLaser;
     public Transform BloodStain;
     public Transform Grill;
     GameObject ScoreBoard;
+
+
 
     public float angle;
     // Use this for initialization
@@ -25,9 +28,9 @@ public class Player : MonoBehaviour {
         body = GetComponent<Rigidbody2D>();
         obj = GetComponent<Transform>();
         layerStomp = LayerMask.NameToLayer("Stomp");
-		layerBile = LayerMask.NameToLayer("Bile");
-		layerLaser = LayerMask.NameToLayer("Laser");
-		speed = initialSpeed;
+        layerBile = LayerMask.NameToLayer("Bile");
+        layerLaser = LayerMask.NameToLayer("Laser");
+        speed = initialSpeed;
         ScoreBoard = GameObject.Find("Score");
 
         #region Kaiju_player
@@ -43,22 +46,19 @@ public class Player : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         Vector2 pos = new Vector2(Input.GetAxis(input_x), Input.GetAxis(input_y)) * speed;
-         angle = Vector2.Angle(Vector2.up, pos);
+        angle = Vector2.Angle(Vector2.up, pos);
 
         if (player >= 2 && player <= 4)
             body.velocity = pos;
 
-        if (pos.magnitude > 0)
-        {
+        if (pos.magnitude > 0) {
             if (angle <= 45.0)
                 anim.SetTrigger(Animator.StringToHash("Dos"));
             else if (angle >= 135.0)
                 anim.SetTrigger(Animator.StringToHash("Face"));
-            else
-            {
+            else {
                 anim.SetTrigger("Coté");
                 if (Input.GetAxis(input_x) > 0)
                     if (obj.localScale.x < 0)
@@ -72,11 +72,13 @@ public class Player : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-		if (collider.gameObject.layer.Equals(layerStomp)) {
-			Die_Human(1);
-		} else if (collider.gameObject.layer.Equals(layerLaser)) {
-			Die_Human(2);
-		} else if (collider.gameObject.layer.Equals(layerBile)) {
+        if (collider.gameObject.layer.Equals(layerStomp)) {
+            Die_Human(1);
+        }
+        else if (collider.gameObject.layer.Equals(layerLaser)) {
+            Die_Human(2);
+        }
+        else if (collider.gameObject.layer.Equals(layerBile)) {
             speed = initialSpeed / 3;
         }
     }
@@ -93,22 +95,19 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void Die_Human(int death)
-    {
-        SpriteRenderer  rend = GetComponent<SpriteRenderer>();
-        Transform       corpse;
+    void Die_Human(int death) {
+        SpriteRenderer rend = GetComponent<SpriteRenderer>();
+        Transform corpse;
 
         rend.enabled = false;
-        if (death == 1)
-        {
+        if (death == 1) {
             corpse = (Transform)Instantiate(BloodStain);
-            corpse.position = this.transform.position.Z(6);
         }
-        if (death == 2)
-        {
+        else { // (death == 2) {
             corpse = (Transform)Instantiate(Grill);
-            corpse.position = this.transform.position.Z(6);
         }
+        corpse.SetParent(scene);
+        corpse.position = this.transform.position.Z(6);
         ScoreBoard.GetComponent<ScoringBoard>().score["Kaiju"] += 1;
         // Death animation goes here, parameter defines which one is played.
         Destroy(gameObject);

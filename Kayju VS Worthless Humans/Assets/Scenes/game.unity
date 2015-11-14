@@ -506,6 +506,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11453514, guid: f185d879333567b45b0965b95cd3aa16, type: 2}
+      propertyPath: scene
+      value: 
+      objectReference: {fileID: 1611190516}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f185d879333567b45b0965b95cd3aa16, type: 2}
   m_IsPrefabParent: 0
@@ -716,7 +720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPlayerIsHuman: 0
-  infiniteStamina: 1
+  infiniteStamina: 0
 --- !u!1 &2100024981
 GameObject:
   m_ObjectHideFlags: 0
