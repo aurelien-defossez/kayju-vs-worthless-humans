@@ -78,7 +78,7 @@ public class KaijuCursor : MonoBehaviour {
                 if (bileStamina.getValue() > 0.5f) {
                     Debug.Log("Kaiju_Bile");
                     Transform bile = (Transform)Instantiate(bilePrefab);
-                    bile.position = this.transform.position;
+                    bile.position = this.transform.position.Z(6);
                     bile.SetParent(scene);
                     bileStamina.use(0.5f);
                 }

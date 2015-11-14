@@ -8,12 +8,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 415366}
-  - 114: {fileID: 11413422}
-  - 114: {fileID: 11480538}
   - 58: {fileID: 5814810}
   - 82: {fileID: 8236018}
   - 212: {fileID: 21244420}
   - 95: {fileID: 9515108}
+  - 114: {fileID: 11449610}
   m_Layer: 13
   m_Name: Bile
   m_TagString: Untagged
@@ -39,13 +38,13 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193148}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -2, y: .5}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 2.4000001
 --- !u!82 &8236018
 AudioSource:
   m_ObjectHideFlags: 1
@@ -133,7 +132,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11413422
+--- !u!114 &11449610
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -141,43 +140,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 193148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 078d48c91518523459a784a7678d3ff4, type: 3}
+  m_Script: {fileID: 11500000, guid: ff34aa63fb0e513438aef16ba627e977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeline: {fileID: 11480538}
-  hitCollider: {fileID: 5814810}
---- !u!114 &11480538
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7c75ac8bc4e6fa4eaf8c438ae507100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 0
-  loop: 0
-  unscaledTime: 0
-  autoPlay: 0
-  delay: 0
-  maxDeltaTime: .150000006
-  actions:
-  - script: {fileID: 11413422}
-    method: Hit
-    from: .5
-    to: .5
-    parameter: 0
-    started: 0
-    finished: 0
-  - script: {fileID: 11413422}
-    method: Shutdown
-    from: 4
-    to: 4
-    parameter: 0
-    started: 0
-    finished: 0
+  parent: 0
 --- !u!212 &21244420
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -243,6 +209,22 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: fbac41fe6c09eda4d8e8e122accad8c6, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Offset.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Offset.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Radius
+      value: 2.4000001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 193148}

@@ -103,7 +103,7 @@ public class Player : MonoBehaviour {
             corpse = (Transform)Instantiate(Grill);
         }
         corpse.SetParent(scene);
-        corpse.position = this.transform.position.Z(6);
+        corpse.position = this.transform.position.Z(9);
         ScoreBoard.GetComponent<ScoringBoard>().score["Kaiju"] += 1;
         // Death animation goes here, parameter defines which one is played.
         Destroy(gameObject);
