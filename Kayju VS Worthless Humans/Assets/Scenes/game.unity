@@ -704,11 +704,11 @@ Prefab:
     - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
       propertyPath: laserStamina
       value: 
-      objectReference: {fileID: 301174247}
+      objectReference: {fileID: 84705098}
     - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
       propertyPath: fireStamina
       value: 
-      objectReference: {fileID: 84705098}
+      objectReference: {fileID: 301174247}
     m_RemovedComponents:
     - {fileID: 21232756, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}

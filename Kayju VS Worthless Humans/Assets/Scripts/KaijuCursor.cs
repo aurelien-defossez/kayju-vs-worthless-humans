@@ -48,12 +48,13 @@ public class KaijuCursor : MonoBehaviour {
             if (laser != null) {
                 laser.setPosition(this.transform.position);
                 laserStamina.use(Time.deltaTime * 0.3f);
+                if (Input.GetButtonUp("Kaiju_Laser") || laserStamina.getValue() <= 0) {
+                    laser.Kill();
+                    laser = null;
+                }
             }
 
-            if (Input.GetButtonUp("Kaiju_Laser") || (laser != null && laserStamina.getValue() <= 0)) {
-                laser.Kill();
-                laser = null;
-            }
+
 
             // EEXCCUUUUUSSE MEEEE!
             if (Input.GetButtonDown("Kaiju_Bile")) {
