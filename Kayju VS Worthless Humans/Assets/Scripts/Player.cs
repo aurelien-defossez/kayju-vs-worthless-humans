@@ -9,9 +9,13 @@ public class Player : MonoBehaviour {
     string input_x = "Horizontal_J";
     string input_y = "Vertical_J";
 
+    int layerStomp;
+
     // Use this for initialization
     void Start () {
         body = GetComponent<Rigidbody2D>();
+        layerStomp = LayerMask.NameToLayer("Stomp");
+
 
         if (KaijuDebug.instance.firstPlayerIsHuman) {
             input_x = "Horizontal_Kaiju";
@@ -27,6 +31,13 @@ public class Player : MonoBehaviour {
     {
         if (player >= 2 && player <= 4)
             body.velocity = new Vector2(Input.GetAxis(input_x), Input.GetAxis(input_y)) * 5;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer.Equals(layerStomp)) {
+            Die_Human();
+        }
     }
 
     void Die_Human(int death = 0)
