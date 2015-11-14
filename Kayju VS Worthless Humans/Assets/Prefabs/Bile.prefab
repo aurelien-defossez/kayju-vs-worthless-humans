@@ -83,13 +83,6 @@ MonoBehaviour:
     started: 0
     finished: 0
   - script: {fileID: 11413422}
-    method: remove
-    from: 3.9000001
-    to: 3.9000001
-    parameter: 0
-    started: 0
-    finished: 0
-  - script: {fileID: 11413422}
     method: Shutdown
     from: 4
     to: 4
