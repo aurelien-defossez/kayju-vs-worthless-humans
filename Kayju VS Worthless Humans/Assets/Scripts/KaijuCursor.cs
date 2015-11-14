@@ -30,6 +30,6 @@ public class KaijuCursor : MonoBehaviour
 				Debug.Log("Kaiju_Fire");
 			}
 			body.velocity = (new Vector2(Input.GetAxis("Horizontal_Kaiju"), Input.GetAxis("Vertical_Kaiju")) * speed);
-		}
+        }
 	}
 }
