@@ -11,13 +11,15 @@ public class Player : MonoBehaviour {
     string input_y = "Vertical_J";
     int layerStomp;
     int layerBile;
+	int layerLaser;
 
     // Use this for initialization
     void Start() {
         body = GetComponent<Rigidbody2D>();
         layerStomp = LayerMask.NameToLayer("Stomp");
-        layerBile = LayerMask.NameToLayer("Bile");
-        speed = initialSpeed;
+		layerBile = LayerMask.NameToLayer("Bile");
+		layerLaser = LayerMask.NameToLayer("Laser");
+		speed = initialSpeed;
 
         if (KaijuDebug.instance.firstPlayerIsHuman) {
             input_x = "Horizontal_Kaiju";
@@ -36,9 +38,11 @@ public class Player : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject.layer.Equals(layerStomp)) {
-            Die_Human();
-        } else if (collider.gameObject.layer.Equals(layerBile)) {
+		if (collider.gameObject.layer.Equals(layerStomp)) {
+			Die_Human(true);
+		} else if (collider.gameObject.layer.Equals(layerLaser)) {
+			Die_Human(false);
+		} else if (collider.gameObject.layer.Equals(layerBile)) {
             speed = initialSpeed / 3;
         }
     }
@@ -55,7 +59,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void Die_Human(int death = 0) {
+    void Die_Human(bool stomped) {
         // Death animation goes here, parameter defines which one is played.
         Destroy(gameObject);
     }

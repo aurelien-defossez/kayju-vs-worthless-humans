@@ -14,4 +14,8 @@ public class Laser : MonoBehaviour {
 
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 	}
+
+	public void Kill() {
+		Destroy(gameObject);
+	}
 }

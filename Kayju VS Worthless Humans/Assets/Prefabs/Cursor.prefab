@@ -73,7 +73,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   stompPrefab: {fileID: 418160, guid: 5544b6cf0d4aa8d49a8b39072f20c17d, type: 2}
-  bilePrefab: {fileID: 0}
+  bilePrefab: {fileID: 415366, guid: 41a6288cf3f456547bebe63debdafd10, type: 2}
+  laserPrefab: {fileID: 432214, guid: e08d21c10ac901f4085424c0045935b4, type: 2}
 --- !u!212 &21232756
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -106,7 +107,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: bilePrefab
+      value: 
+      objectReference: {fileID: 415366, guid: 41a6288cf3f456547bebe63debdafd10, type: 2}
+    - target: {fileID: 0}
+      propertyPath: laserPrefab
+      value: 
+      objectReference: {fileID: 432214, guid: e08d21c10ac901f4085424c0045935b4, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 192942}
