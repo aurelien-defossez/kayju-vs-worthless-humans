@@ -3,11 +3,13 @@ using System.Collections;
 
 public class KaijuCursor : MonoBehaviour
 {
+    Rigidbody2D body;
+    public float speed;
 
     // Use this for initialization
     void Start()
     {
-
+        body = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -45,5 +47,6 @@ public class KaijuCursor : MonoBehaviour
         {
             Debug.Log("Down");
         }
+        body.velocity = (new Vector2(Input.GetAxis("Horizontal_Kaiju"), Input.GetAxis("Vertical_Kaiju")) * speed);
     }
 }
