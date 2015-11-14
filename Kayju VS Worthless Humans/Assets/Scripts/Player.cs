@@ -47,6 +47,11 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (speed < initialSpeed) {
+            speed += Time.deltaTime * (initialSpeed/3);
+            speed = Mathf.Min(speed, initialSpeed);
+        }
+
         Vector2 pos = new Vector2(Input.GetAxis(input_x), Input.GetAxis(input_y)) * speed;
         angle = Vector2.Angle(Vector2.up, pos);
 
@@ -88,13 +93,7 @@ public class Player : MonoBehaviour {
             speed = initialSpeed / 3;
         }
     }
-
-    void OnTriggerExit2D(Collider2D collider) {
-        if (collider.gameObject.layer.Equals(layerBile)) {
-            speed = initialSpeed;
-        }
-    }
-
+    
     void Die_Human(int death) {
         SpriteRenderer rend = GetComponent<SpriteRenderer>();
         Transform corpse;
