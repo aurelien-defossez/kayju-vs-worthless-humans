@@ -65,13 +65,9 @@ public class Player : MonoBehaviour {
                 anim.SetTrigger(Animator.StringToHash("Face"));
             else {
                 anim.SetTrigger("Coté");
-                if (Input.GetAxis(input_x) > 0)
-                    if (obj.localScale.x < 0)
-                        obj.localScale = Vector3.Scale(obj.localScale, new Vector3(-1, 1, 1));
-                if (Input.GetAxis(input_x) < 0)
-                    if (obj.localScale.x > 0)
-                        obj.localScale = Vector3.Scale(obj.localScale, new Vector3(-1, 1, 1));
 
+                if (pos.x > 0 && obj.localScale.x < 0 || pos.x < 0 && obj.localScale.x > 0)
+                   obj.localScale = Vector3.Scale(obj.localScale, new Vector3(-1, 1, 1));
             }
         }
     }
