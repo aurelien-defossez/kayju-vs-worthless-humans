@@ -12,27 +12,24 @@ public class KaijuCursor : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonDown("Kaiju_Stomp"))
-        {
-            Debug.Log("Kaiju_Stomp");
-            Transform stomp = (Transform)Instantiate(stompPrefab);
-            stomp.position = this.transform.position;
-        }
-        if (Input.GetButtonDown("Kaiju_Laser"))
-        {
-            Debug.Log("Kaiju_Laser");
-        }
-        if (Input.GetButtonDown("Kaiju_Bile"))
-        {
-            Debug.Log("Kaiju_Bile");
-        }
-        if (Input.GetButtonDown("Kaiju_Fire"))
-        {
-            Debug.Log("Kaiju_Fire");
-        }
-        body.velocity = (new Vector2(Input.GetAxis("Horizontal_Kaiju"), Input.GetAxis("Vertical_Kaiju")) * speed);
-    }
+	// Update is called once per frame
+	void Update() {
+		if (!KaijuDebug.instance.firstPlayerIsHuman) {
+			if (Input.GetButtonDown("Kaiju_Stomp")) {
+				Debug.Log("Kaiju_Stomp");
+				Transform stomp = (Transform)Instantiate(stompPrefab);
+				stomp.position = this.transform.position;
+			}
+			if (Input.GetButtonDown("Kaiju_Laser")) {
+				Debug.Log("Kaiju_Laser");
+			}
+			if (Input.GetButtonDown("Kaiju_Bile")) {
+				Debug.Log("Kaiju_Bile");
+			}
+			if (Input.GetButtonDown("Kaiju_Fire")) {
+				Debug.Log("Kaiju_Fire");
+			}
+			body.velocity = (new Vector2(Input.GetAxis("Horizontal_Kaiju"), Input.GetAxis("Vertical_Kaiju")) * speed);
+		}
+	}
 }

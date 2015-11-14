@@ -15,7 +15,7 @@ public class Player : MonoBehaviour {
 
         if (KaijuDebug.instance.firstPlayerIsHuman) {
             input_x = "Horizontal_Kaiju";
-            input_x = "Vertical_Kaiju";
+            input_y = "Vertical_Kaiju";
         } else {
             input_x += player;
             input_y += player;
