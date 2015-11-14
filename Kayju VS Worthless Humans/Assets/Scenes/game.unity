@@ -742,6 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPlayerIsHuman: 0
+  infiniteStamina: 0
 --- !u!4 &2114719299 stripped
 Transform:
   m_PrefabParentObject: {fileID: 498238, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
