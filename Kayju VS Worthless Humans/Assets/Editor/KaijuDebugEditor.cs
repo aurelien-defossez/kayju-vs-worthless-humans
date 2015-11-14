@@ -4,8 +4,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-[CustomEditor(typeof(Debug))]
-public class DebugEditor : Editor {
+[CustomEditor(typeof(KaijuDebug))]
+public class KaijuDebugEditor : Editor {
     // ----------------------------------------------------------------------------
     // Public Methods
     // ----------------------------------------------------------------------------
@@ -14,7 +14,7 @@ public class DebugEditor : Editor {
         DrawDefaultInspector();
 
         if (GUILayout.Button("Clear")) {
-            Debug d = (Debug)target;
+            KaijuDebug d = (KaijuDebug)target;
                 
             d.example = false;
         }

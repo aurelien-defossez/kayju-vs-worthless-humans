@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Debug : MonoBehaviour  {
+public class KaijuDebug : MonoBehaviour  {
     // ----------------------------------------------------------------------------
     // Configuration
     // ----------------------------------------------------------------------------
@@ -16,7 +16,7 @@ public class Debug : MonoBehaviour  {
     // Singleton
     // ----------------------------------------------------------------------------
 
-    public static Debug instance { get; private set; }
+    public static KaijuDebug instance { get; private set; }
 
     public void Awake() {
         instance = this;
