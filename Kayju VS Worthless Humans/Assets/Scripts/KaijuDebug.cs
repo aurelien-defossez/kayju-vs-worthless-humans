@@ -12,6 +12,9 @@ public class KaijuDebug : MonoBehaviour  {
     [Tooltip("Forces the first player to be human instead of Kaiju")]
     public bool firstPlayerIsHuman;
 
+	[Tooltip("Never stop hitting them")]
+	public bool infiniteStamina;
+
     // ----------------------------------------------------------------------------
     // Singleton
     // ----------------------------------------------------------------------------

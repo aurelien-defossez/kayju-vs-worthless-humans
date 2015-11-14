@@ -17,6 +17,7 @@ public class KaijuDebugEditor : Editor {
             KaijuDebug d = (KaijuDebug)target;
                 
             d.firstPlayerIsHuman = false;
+			d.infiniteStamina = false;
         }
     }
 }
