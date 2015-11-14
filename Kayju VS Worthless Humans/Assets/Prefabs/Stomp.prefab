@@ -188,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadow: {fileID: 454596}
   fist: {fileID: 470606}
-  maxSize: 30
+  maxSize: .800000012
   timeline: {fileID: 11438312}
   shadowOpacity:
     from: 0
@@ -249,7 +249,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 4d16f0b8c5c775240a63d6f1f4f49665, type: 3}
   m_Color: {r: .544117689, g: .544117689, b: .544117689, a: .533999979}
 --- !u!1001 &100100000
 Prefab:
