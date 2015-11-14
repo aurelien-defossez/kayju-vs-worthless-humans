@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
 
     void Die_Human(int death = 0)
     {
-        // Death anoimation goes here, parameter defines which one is played.
+        // Death animation goes here, parameter defines which one is played.
         Destroy(gameObject);
     }
 }
