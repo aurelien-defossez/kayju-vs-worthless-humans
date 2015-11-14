@@ -45,7 +45,7 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Vector2 pos = new Vector2(Input.GetAxis(input_x), Input.GetAxis(input_y)) * 5;
+        Vector2 pos = new Vector2(Input.GetAxis(input_x), Input.GetAxis(input_y)) * speed;
          angle = Vector2.Angle(Vector2.up, pos);
 
         if (player >= 2 && player <= 4)
