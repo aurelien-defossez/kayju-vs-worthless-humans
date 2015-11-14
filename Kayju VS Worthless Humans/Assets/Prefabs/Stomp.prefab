@@ -83,6 +83,13 @@ MonoBehaviour:
     parameter: 0
     started: 0
     finished: 0
+  - script: {fileID: 11488294}
+    method: Shutdown
+    from: 2
+    to: 2
+    parameter: 0
+    started: 0
+    finished: 0
 --- !u!114 &11488294
 MonoBehaviour:
   m_ObjectHideFlags: 1

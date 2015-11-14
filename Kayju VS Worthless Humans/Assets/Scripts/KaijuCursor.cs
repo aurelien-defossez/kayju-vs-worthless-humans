@@ -5,7 +5,7 @@ public class KaijuCursor : MonoBehaviour
 {
     Rigidbody2D body;
     public float speed;
-
+    public Transform stompPrefab;
     // Use this for initialization
     void Start()
     {

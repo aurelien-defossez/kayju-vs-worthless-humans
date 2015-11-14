@@ -22,4 +22,10 @@ public class Stomp : MonoBehaviour {
         shadow.localScale = new Vector2(1, 1) * options.progress * maxSize;
         shadowSprite.color = shadowSprite.color.A(shadowOpacity.Lerp(options.progress));
     }
+
+    [TimelineMethod]
+    public void Shutdown(TimelineCall options)
+    {
+        Destroy(gameObject);
+    }
 }
