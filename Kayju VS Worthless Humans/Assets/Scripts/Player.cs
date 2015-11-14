@@ -6,14 +6,20 @@ public class Player : MonoBehaviour {
     public float speed;
     public int player;
     Rigidbody2D body;
-    string input_y = "Vertical_J";
     string input_x = "Horizontal_J";
+    string input_y = "Vertical_J";
 
     // Use this for initialization
     void Start () {
         body = GetComponent<Rigidbody2D>();
-        input_x += player;
-        input_y += player;
+
+        if (KaijuDebug.instance.firstPlayerIsHuman) {
+            input_x = "Horizontal_Kaiju";
+            input_x = "Vertical_Kaiju";
+        } else {
+            input_x += player;
+            input_y += player;
+        }
     }
 
     // Update is called once per frame

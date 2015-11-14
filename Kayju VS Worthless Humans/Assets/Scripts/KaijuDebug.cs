@@ -9,8 +9,8 @@ public class KaijuDebug : MonoBehaviour  {
     // ----------------------------------------------------------------------------
 
     // Gameplay
-    [Tooltip("Debug example")]
-    public bool example;
+    [Tooltip("Forces the first player to be human instead of Kaiju")]
+    public bool firstPlayerIsHuman;
 
     // ----------------------------------------------------------------------------
     // Singleton

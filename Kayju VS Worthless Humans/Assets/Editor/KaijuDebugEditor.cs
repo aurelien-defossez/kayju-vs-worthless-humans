@@ -16,7 +16,7 @@ public class KaijuDebugEditor : Editor {
         if (GUILayout.Button("Clear")) {
             KaijuDebug d = (KaijuDebug)target;
                 
-            d.example = false;
+            d.firstPlayerIsHuman = false;
         }
     }
 }
