@@ -17,8 +17,11 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        input_x += player;
-        input_y += player;
-        body.velocity = new Vector2(Input.GetAxis(input_y), Input.GetAxis(input_x)) * 5;
+        if (player >= 2 && player <= 4)
+        {
+            input_x += player;
+            input_y += player;
+            body.velocity = new Vector2(Input.GetAxis(input_y), Input.GetAxis(input_x)) * 5;
+        }
     }
 }
