@@ -35,33 +35,25 @@ public class Player : MonoBehaviour {
             body.velocity = new Vector2(Input.GetAxis(input_x), Input.GetAxis(input_y)) * speed;
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
-        Debug.Log("IN");
-        if (collision.gameObject.layer.Equals(layerStomp)) {
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.layer.Equals(layerStomp)) {
             Die_Human();
-        }
-        if (collision.gameObject.layer.Equals(layerBile)) {
+        } else if (collider.gameObject.layer.Equals(layerBile)) {
             speed = initialSpeed / 3;
-            Debug.Log("bile in");
         }
     }
 
-    void OnCollisionStay2D(Collision2D collision) {
-        Debug.Log("STAY");
-        if (collision.gameObject.layer.Equals(layerBile)) {
+	void OnTriggerStay2D(Collider2D collider) {
+        if (collider.gameObject.layer.Equals(layerBile)) {
             speed = initialSpeed / 3;
-            Debug.Log("bile stay");
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision) {
-        Debug.Log("OUT");
-        if (collision.gameObject.layer.Equals(layerBile)) {
+    void OnTriggerExit2D(Collider2D collider) {
+        if (collider.gameObject.layer.Equals(layerBile)) {
             speed = initialSpeed;
-            Debug.Log("bile out");
         }
     }
-
 
     void Die_Human(int death = 0) {
         // Death animation goes here, parameter defines which one is played.
