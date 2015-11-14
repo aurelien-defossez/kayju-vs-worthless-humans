@@ -6,6 +6,8 @@ public class KaijuCursor : MonoBehaviour {
     public float speed;
     public float laserSpeedModifier;
 
+    public Transform scene;
+
     public Transform stompPrefab;
     public Transform bilePrefab;
     public Transform laserPrefab;
@@ -42,8 +44,8 @@ public class KaijuCursor : MonoBehaviour {
             if (Input.GetButtonDown("Kaiju_Laser") && laserStamina.getValue() > 0.1f) {
                 Debug.Log("Kaiju_Laser");
                 Transform laserTransform = (Transform)Instantiate(laserPrefab);
-				laserTransform.position = this.transform.position;
-				laser = (Laser)laserTransform.GetComponent<Laser>();
+                laserTransform.position = this.transform.position;
+                laser = (Laser)laserTransform.GetComponent<Laser>();
             }
 
             if (laser != null) {
@@ -61,6 +63,7 @@ public class KaijuCursor : MonoBehaviour {
                     Debug.Log("Kaiju_Bile");
                     Transform bile = (Transform)Instantiate(bilePrefab);
                     bile.position = this.transform.position;
+                    bile.SetParent(scene);
                     bileStamina.use(0.5f);
                 }
                 else {

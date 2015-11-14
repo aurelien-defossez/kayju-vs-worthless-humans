@@ -645,6 +645,10 @@ Prefab:
       propertyPath: fireStamina
       value: 
       objectReference: {fileID: 301174247}
+    - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
+      propertyPath: scene
+      value: 
+      objectReference: {fileID: 1611190516}
     m_RemovedComponents:
     - {fileID: 21232756, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
