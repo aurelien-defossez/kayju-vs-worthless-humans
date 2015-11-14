@@ -5,6 +5,7 @@ public class Player : MonoBehaviour {
 
     public float initialSpeed;
     public Transform scene;
+
     Transform obj;
     Animator anim;
     Rigidbody2D body;

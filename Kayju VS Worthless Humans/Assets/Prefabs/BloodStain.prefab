@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 463634}
   - 212: {fileID: 21243166}
   - 114: {fileID: 11418766}
+  - 114: {fileID: 11464596}
   m_Layer: 0
   m_Name: BloodStain
   m_TagString: Untagged
@@ -40,6 +41,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff34aa63fb0e513438aef16ba627e977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: 0
+--- !u!114 &11464596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2ed20a3ba457b4689c185f238b2234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stompDeathSounds:
+  - {fileID: 8300000, guid: 3d4dd9dd7ee3c1d46ae0b41eecbb4d30, type: 3}
+  - {fileID: 8300000, guid: 0de7cf6aec18ab741b24fc2b749da52a, type: 3}
+  - {fileID: 8300000, guid: 53b94137e73c30646bb42f5bf026b1a6, type: 3}
+  - {fileID: 8300000, guid: 52ec5480b11b1a9479d8a431507ca85c, type: 3}
+  - {fileID: 8300000, guid: 6fa189f6a76e70b4b8fc2d5d29c18265, type: 3}
+  - {fileID: 8300000, guid: 506e4765d9de9b64eb3216c28e82f049, type: 3}
+  - {fileID: 8300000, guid: dd1b7c8a28ebd0f4a98434109dc0fa20, type: 3}
+  - {fileID: 8300000, guid: 4fd310f3761c00c47a7107f141095e69, type: 3}
 --- !u!212 &21243166
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -74,6 +96,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: stompDeathSounds.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
@@ -81,6 +107,38 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: stompDeathSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d4dd9dd7ee3c1d46ae0b41eecbb4d30, type: 3}
+    - target: {fileID: 0}
+      propertyPath: stompDeathSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0de7cf6aec18ab741b24fc2b749da52a, type: 3}
+    - target: {fileID: 0}
+      propertyPath: stompDeathSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 53b94137e73c30646bb42f5bf026b1a6, type: 3}
+    - target: {fileID: 0}
+      propertyPath: stompDeathSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 52ec5480b11b1a9479d8a431507ca85c, type: 3}
+    - target: {fileID: 0}
+      propertyPath: stompDeathSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6fa189f6a76e70b4b8fc2d5d29c18265, type: 3}
+    - target: {fileID: 0}
+      propertyPath: stompDeathSounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 506e4765d9de9b64eb3216c28e82f049, type: 3}
+    - target: {fileID: 0}
+      propertyPath: stompDeathSounds.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: dd1b7c8a28ebd0f4a98434109dc0fa20, type: 3}
+    - target: {fileID: 0}
+      propertyPath: stompDeathSounds.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4fd310f3761c00c47a7107f141095e69, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 183608}
