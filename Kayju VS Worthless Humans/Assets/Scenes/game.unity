@@ -85,21 +85,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &455003085
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 192942, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
-  m_PrefabInternal: {fileID: 1622478590}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2114719299}
-  m_Layer: 0
-  m_Name: Cursor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1340758211
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +198,7 @@ Transform:
   m_Children:
   - {fileID: 2114719299}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1001 &1622478590
 Prefab:
   m_ObjectHideFlags: 0
@@ -255,17 +240,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
-  m_RootGameObject: {fileID: 455003085}
   m_IsPrefabParent: 0
---- !u!4 &2114719299
+--- !u!1 &1691072649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1691072650}
+  - 114: {fileID: 1691072651}
+  m_Layer: 0
+  m_Name: Debug
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1691072650
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 498238, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
-  m_PrefabInternal: {fileID: 1622478590}
-  m_GameObject: {fileID: 455003085}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1691072649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1398810548}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+--- !u!114 &1691072651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1691072649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 604e50d2273acfb428f78e8ad266c917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  example: 0
+--- !u!4 &2114719299 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 498238, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
+  m_PrefabInternal: {fileID: 1622478590}
