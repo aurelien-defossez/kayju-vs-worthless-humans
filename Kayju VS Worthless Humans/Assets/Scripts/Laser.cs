@@ -4,9 +4,6 @@ public class Laser : MonoBehaviour {
 	public Transform laser;
 	public Vector3 origin;
 
-	Vector3 velocity;
-	Vector3 target;
-
 	public void setPosition(Vector2 position) {
 		transform.position = new Vector3(position.x, position.y, 0);
 		Rotate();
