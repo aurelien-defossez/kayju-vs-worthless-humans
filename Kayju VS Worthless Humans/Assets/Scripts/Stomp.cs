@@ -20,7 +20,7 @@ public class Stomp : MonoBehaviour {
     public void Start() {
         shadowSprite = shadow.GetComponent<SpriteRenderer>();
 		initialFistPosition = fist.position;
-		transform.position = transform.position.Z(0);
+		transform.position = transform.position.Z(3);
 
         timeline.Play();
 
