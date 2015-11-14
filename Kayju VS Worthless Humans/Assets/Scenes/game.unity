@@ -85,6 +85,88 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &84705096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 84705097}
+  - 114: {fileID: 84705098}
+  m_Layer: 0
+  m_Name: LaserStaminaBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &84705097
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 84705096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.98152542, y: 1.81602097, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1636967747}
+  m_RootOrder: 3
+--- !u!114 &84705098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 84705096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a097449c909b037448203ed940bb84fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadSpeed: .100000001
+  value: 0
+--- !u!1 &301174245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 301174246}
+  - 114: {fileID: 301174247}
+  m_Layer: 0
+  m_Name: FireStaminaBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &301174246
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 301174245}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.98152542, y: 1.81602097, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1636967747}
+  m_RootOrder: 2
+--- !u!114 &301174247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 301174245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a097449c909b037448203ed940bb84fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadSpeed: .100000001
+  value: 0
 --- !u!1 &334867894
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +208,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1398810548}
   m_RootOrder: 2
+--- !u!1 &354733814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 354733815}
+  - 114: {fileID: 354733816}
+  m_Layer: 0
+  m_Name: BileStaminaBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &354733815
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 354733814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.98152542, y: 1.81602097, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1636967747}
+  m_RootOrder: 1
+--- !u!114 &354733816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 354733814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a097449c909b037448203ed940bb84fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadSpeed: .100000001
+  value: 0
 --- !u!4 &716602267 stripped
 Transform:
   m_PrefabParentObject: {fileID: 437198, guid: f185d879333567b45b0965b95cd3aa16, type: 2}
@@ -173,7 +296,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1398810548}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!61 &770456656
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -380,9 +503,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2114719299}
   - {fileID: 770456655}
+  - {fileID: 2114719299}
   - {fileID: 334867896}
+  - {fileID: 1636967747}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!1001 &1449153364
@@ -481,6 +605,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1 &1533912221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1533912223}
+  - 114: {fileID: 1533912222}
+  m_Layer: 0
+  m_Name: StompStaminaBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1533912222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1533912221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a097449c909b037448203ed940bb84fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadSpeed: .100000001
+  value: 0
+--- !u!4 &1533912223
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1533912221}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.98152542, y: 1.81602097, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1636967747}
+  m_RootOrder: 0
 --- !u!1001 &1622478590
 Prefab:
   m_ObjectHideFlags: 0
@@ -518,11 +683,67 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498238, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5003276, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
+      propertyPath: bilePrefab
+      value: 
+      objectReference: {fileID: 415366, guid: 41a6288cf3f456547bebe63debdafd10, type: 2}
+    - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
+      propertyPath: stompStamina
+      value: 
+      objectReference: {fileID: 1533912222}
+    - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
+      propertyPath: bileStamina
+      value: 
+      objectReference: {fileID: 354733816}
+    - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
+      propertyPath: laserStamina
+      value: 
+      objectReference: {fileID: 301174247}
+    - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
+      propertyPath: fireStamina
+      value: 
+      objectReference: {fileID: 84705098}
+    m_RemovedComponents:
+    - {fileID: 21232756, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1636967746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1636967747}
+  m_Layer: 0
+  m_Name: Bars
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1636967747
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1636967746}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1533912223}
+  - {fileID: 354733815}
+  - {fileID: 301174246}
+  - {fileID: 84705097}
+  m_Father: {fileID: 1398810548}
+  m_RootOrder: 3
 --- !u!1 &1691072649
 GameObject:
   m_ObjectHideFlags: 0
