@@ -104,6 +104,11 @@ MonoBehaviour:
   stompPrefab: {fileID: 418160, guid: 5544b6cf0d4aa8d49a8b39072f20c17d, type: 2}
   bilePrefab: {fileID: 415366, guid: 41a6288cf3f456547bebe63debdafd10, type: 2}
   laserPrefab: {fileID: 432214, guid: e08d21c10ac901f4085424c0045935b4, type: 2}
+  stompStamina: {fileID: 0}
+  bileStamina: {fileID: 0}
+  laserStamina: {fileID: 0}
+  fireStamina: {fileID: 0}
+  laserRandomForce: 2
 --- !u!212 &21200298
 SpriteRenderer:
   m_ObjectHideFlags: 1

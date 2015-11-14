@@ -17,7 +17,11 @@ public class KaijuCursor : MonoBehaviour {
     public StaminaBar laserStamina;
     public StaminaBar fireStamina;
 
-    Laser laser;
+	public float laserRandomForce;
+	public float laserRandomRotation;
+
+	Laser laser;
+	Vector2 randomLaserVelocity;
 
     // Use this for initialization
     void Start() {
@@ -44,16 +48,21 @@ public class KaijuCursor : MonoBehaviour {
             if (Input.GetButtonDown("Kaiju_Laser") && laserStamina.getValue() > 0.1f) {
                 Debug.Log("Kaiju_Laser");
                 Transform laserTransform = (Transform)Instantiate(laserPrefab);
-                laserTransform.position = this.transform.position;
-                laser = (Laser)laserTransform.GetComponent<Laser>();
+				laserTransform.position = this.transform.position;
+				laser = (Laser)laserTransform.GetComponent<Laser>();
+				randomLaserVelocity = Quaternion.Euler(0, 0, Random.value * 360) * Vector2.up * laserRandomForce;
             }
 
             if (laser != null) {
                 laser.setPosition(this.transform.position);
-                laserStamina.use(Time.deltaTime * 0.3f);
-                if (Input.GetButtonUp("Kaiju_Laser") || laserStamina.getValue() <= 0) {
+                laserStamina.use(Time.deltaTime * 1f);
+
+				if (Input.GetButtonUp("Kaiju_Laser") || laserStamina.getValue() <= 0) {
                     laser.Kill();
-                    laser = null;
+					randomLaserVelocity = Vector2.zero;
+					laser = null;
+                } else {
+					randomLaserVelocity = randomLaserVelocity.Rotate(laserRandomRotation * Time.deltaTime);
                 }
             }
 
@@ -78,8 +87,9 @@ public class KaijuCursor : MonoBehaviour {
 
             Vector2 direction = new Vector2(Input.GetAxis("Horizontal_Kaiju"), Input.GetAxis("Vertical_Kaiju"));
             body.velocity = direction * speed;
+			body.velocity += randomLaserVelocity * Time.deltaTime;
 
-            if (laser != null) {
+			if (laser != null) {
                 body.velocity *= laserSpeedModifier;
             }
         }
