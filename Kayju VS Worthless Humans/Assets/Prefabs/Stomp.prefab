@@ -136,42 +136,42 @@ MonoBehaviour:
   - script: {fileID: 11488294}
     method: GrowShadow
     from: 0
-    to: 2
+    to: 1
     parameter: 0
     started: 0
     finished: 0
   - script: {fileID: 11488294}
     method: MoveFist
-    from: 1.75
-    to: 2
+    from: .800000012
+    to: 1
     parameter: 0
     started: 0
     finished: 0
   - script: {fileID: 11488294}
     method: Hit
-    from: 2
-    to: 2
+    from: 1
+    to: 1
     parameter: 0
     started: 0
     finished: 0
   - script: {fileID: 11488294}
     method: HitEnd
-    from: 2.0999999
-    to: 2.0999999
+    from: 1.10000002
+    to: 1.10000002
     parameter: 0
     started: 0
     finished: 0
   - script: {fileID: 11488294}
     method: MoveFist
-    from: 2.5
-    to: 3
+    from: 1.39999998
+    to: 1.79999995
     parameter: 1
     started: 0
     finished: 0
   - script: {fileID: 11488294}
     method: Shutdown
-    from: 3
-    to: 3
+    from: 2
+    to: 2
     parameter: 0
     started: 0
     finished: 0
@@ -196,6 +196,9 @@ MonoBehaviour:
   hitCollider: {fileID: 5861724}
   blockCollider: {fileID: 5864834}
   initialFistPosition: {x: 0, y: 0}
+  stompPreparationSound: {fileID: 8300000, guid: c1dc6491f04e19d40acce2a770720143,
+    type: 3}
+  stompHitSound: {fileID: 8300000, guid: 303fa5d81a7508d4cb1d0b43eb1d737f, type: 3}
 --- !u!212 &21220208
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -291,6 +294,14 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: stompPreparationSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c1dc6491f04e19d40acce2a770720143, type: 3}
+    - target: {fileID: 0}
+      propertyPath: stompHitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 303fa5d81a7508d4cb1d0b43eb1d737f, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 120624}

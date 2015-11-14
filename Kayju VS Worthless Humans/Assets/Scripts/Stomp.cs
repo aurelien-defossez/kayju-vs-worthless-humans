@@ -12,6 +12,8 @@ public class Stomp : MonoBehaviour {
     public CircleCollider2D hitCollider;
     public CircleCollider2D blockCollider;
 	public Vector2 initialFistPosition;
+	public AudioClip stompPreparationSound;
+	public AudioClip stompHitSound;
 
     private SpriteRenderer shadowSprite;
 
@@ -20,6 +22,8 @@ public class Stomp : MonoBehaviour {
 		initialFistPosition = fist.position;
 
         timeline.Play();
+
+		Utils.PlayPitchedClipAt(stompPreparationSound, transform.position);
 	}
 
 	[TimelineMethod]
@@ -39,6 +43,7 @@ public class Stomp : MonoBehaviour {
     {
         hitCollider.enabled=true;
 		shadowSprite.enabled = false;
+		Utils.PlayPitchedClipAt(stompHitSound, transform.position);
 	}
 
     [TimelineMethod]
