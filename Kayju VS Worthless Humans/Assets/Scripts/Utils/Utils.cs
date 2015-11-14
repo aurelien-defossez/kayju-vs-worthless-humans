@@ -123,7 +123,22 @@ public class Utils : MonoBehaviour {
         return audioSource;
     }
 
-    public static AudioSource PlayPitchedClip(AudioClip clip) {
+	public static void FadeAudio(AudioSource source, float to, float fadeTime) {
+		StartExternalCoroutine(FadeAudioCoroutine(source, to, fadeTime));
+	}
+
+	public static IEnumerator FadeAudioCoroutine(AudioSource source, float to, float fadeTime) {
+		float from = source.volume;
+		float time = 0.0F;
+
+		while (time <= fadeTime) {
+			time += Time.deltaTime;
+			source.volume = Mathf.Lerp(from, to, time / fadeTime);
+			yield return new WaitForEndOfFrame();
+		}
+	}
+
+	public static AudioSource PlayPitchedClip(AudioClip clip) {
         return PlayPitchedClipAt(clip, Vector3.zero);
     }
 }

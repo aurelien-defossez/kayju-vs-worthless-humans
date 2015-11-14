@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a097449c909b037448203ed940bb84fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadSpeed: .200000003
+  reloadSpeed: .600000024
   value: 0
 --- !u!1 &301174245
 GameObject:
@@ -351,6 +351,80 @@ Transform:
   - {fileID: 797335448}
   m_Father: {fileID: 1611190516}
   m_RootOrder: 0
+--- !u!1 &1053165222 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 192942, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
+  m_PrefabInternal: {fileID: 1622478590}
+--- !u!82 &1053165223
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053165222}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 462ab3d9b424c3f46904d4e701f74116, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1098368926
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +759,10 @@ Prefab:
       propertyPath: laserRandomForce
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
+      propertyPath: laserKilling
+      value: 
+      objectReference: {fileID: 1053165223}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
   m_IsPrefabParent: 0
@@ -728,6 +806,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1691072650}
   - 114: {fileID: 1691072651}
+  - 114: {fileID: 1691072652}
   m_Layer: 0
   m_Name: Debug
   m_TagString: Untagged
@@ -760,6 +839,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPlayerIsHuman: 0
   infiniteStamina: 0
+--- !u!114 &1691072652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1691072649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be08789089c795c4891ab99b3bd5d614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2100024981
 GameObject:
   m_ObjectHideFlags: 0

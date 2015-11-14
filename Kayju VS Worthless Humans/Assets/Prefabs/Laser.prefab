@@ -113,6 +113,7 @@ MonoBehaviour:
   laser: {fileID: 432214}
   origin: {x: 0, y: -8, z: 0}
   laserTracePrefab: {fileID: 437686, guid: 738aec0a74dc6ac468b637adcce4616a, type: 2}
+  scene: {fileID: 0}
 --- !u!212 &21212544
 SpriteRenderer:
   m_ObjectHideFlags: 1

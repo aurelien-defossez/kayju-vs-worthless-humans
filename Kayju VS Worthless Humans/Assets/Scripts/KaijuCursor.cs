@@ -17,6 +17,9 @@ public class KaijuCursor : MonoBehaviour {
     public StaminaBar laserStamina;
     public StaminaBar fireStamina;
 
+	public AudioSource laserStarting;
+	public AudioSource laserKilling;
+
 	public float laserRandomForce;
 	public float laserRandomRotation;
 
@@ -52,15 +55,18 @@ public class KaijuCursor : MonoBehaviour {
 				laser = (Laser)laserTransform.GetComponent<Laser>();
 				laser.scene = scene;
                 randomLaserVelocity = Quaternion.Euler(0, 0, Random.value * 360) * Vector2.up * laserRandomForce;
+				laserKilling.volume = 1;
+                laserKilling.Play();
             }
 
             if (laser != null) {
                 laser.setPosition(this.transform.position);
-                laserStamina.use(Time.deltaTime * 1f);
+                laserStamina.use(Time.deltaTime * 4f);
 
 				if (Input.GetButtonUp("Kaiju_Laser") || laserStamina.getValue() <= 0) {
                     laser.Kill();
 					randomLaserVelocity = Vector2.zero;
+					Utils.FadeAudio(laserKilling, 0, 0.25f);
 					laser = null;
                 } else {
 					randomLaserVelocity = randomLaserVelocity.Rotate(laserRandomRotation * Time.deltaTime);
