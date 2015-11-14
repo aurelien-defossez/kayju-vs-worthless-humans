@@ -42,7 +42,8 @@ public class KaijuCursor : MonoBehaviour {
             if (Input.GetButtonDown("Kaiju_Laser") && laserStamina.getValue() > 0.1f) {
                 Debug.Log("Kaiju_Laser");
                 Transform laserTransform = (Transform)Instantiate(laserPrefab);
-                laser = (Laser)laserTransform.GetComponent<Laser>();
+				laserTransform.position = this.transform.position;
+				laser = (Laser)laserTransform.GetComponent<Laser>();
             }
 
             if (laser != null) {
@@ -53,8 +54,6 @@ public class KaijuCursor : MonoBehaviour {
                     laser = null;
                 }
             }
-
-
 
             // EEXCCUUUUUSSE MEEEE!
             if (Input.GetButtonDown("Kaiju_Bile")) {

@@ -2,17 +2,23 @@
 
 public class Laser : MonoBehaviour {
 	public Transform laser;
-	public Vector2 origin;
+	public Vector3 origin;
+
+	Vector3 velocity;
+	Vector3 target;
 
 	public void setPosition(Vector2 position) {
-		transform.position = position;
+		transform.position = new Vector3(position.x, position.y, 0);
+		Rotate();
+	}
 
-		float angle = Vector2.Angle(origin - position, origin);
-		if (position.x > 0) {
+	private void Rotate() {
+		float angle = Vector2.Angle(origin - transform.position, origin);
+		if (transform.position.x > 0) {
 			angle *= -1;
 		}
 
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 	}
 
 	public void Kill() {

@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laser: {fileID: 432214}
-  origin: {x: 0, y: -8}
+  origin: {x: 0, y: -8, z: 0}
 --- !u!212 &21212544
 SpriteRenderer:
   m_ObjectHideFlags: 1
