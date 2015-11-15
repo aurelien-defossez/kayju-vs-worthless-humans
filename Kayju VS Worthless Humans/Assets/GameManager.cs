@@ -41,6 +41,17 @@ public class GameManager : MonoBehaviour {
             }
         }
 
+        timer -= Time.deltaTime;
+        if (timer <= 0) {
+            Human pnj = Instantiate(humanPrefab);
+
+            pnj.transform.position = new Vector3(Random.Range(-worldScreenWidth / 2, worldScreenWidth / 2), worldScreenHeight / 2, 0);
+            pnj.transform.SetParent(scene);
+
+            timer = Random.Range(1, 3);
+        }
+
+
         // Play sound
         if (currentRunSound == null) {
             int length = 0;
@@ -67,19 +78,6 @@ public class GameManager : MonoBehaviour {
             currentRunSound.volume = 0.2f;
         }
 
-        timer -= Time.deltaTime;
-
-        if (timer <= 0) {
-
-            Human pnj = Instantiate(humanPrefab);
-
-            pnj.transform.position = new Vector3(
-                Random.Range(-worldScreenWidth / 2, worldScreenWidth / 2), worldScreenHeight / 2, 0);
-            pnj.transform.SetParent(scene);
-
-
-            timer = Random.Range(1, 3);
-        }
 
     }
 }
