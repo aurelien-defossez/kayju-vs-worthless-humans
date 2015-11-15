@@ -26,6 +26,11 @@ public class Fire : MonoBehaviour {
 		timeline.Play();
 	}
 
+	public void Update() {
+		burningFire.transform.position = burningFire.transform.position.Z(
+			Mathf.InverseLerp(screenYBounds.from, screenYBounds.to, burningFire.transform.position.y));
+	}
+
 	[TimelineMethod]
 	public void SpitFire(TimelineCall options) {
 		transform.position = Vector3.Lerp(spitSpawn, target, options.progress);
@@ -36,8 +41,6 @@ public class Fire : MonoBehaviour {
 		transform.parent = scene;
 		spitFire.SetActive(false);
 		burningFire.SetActive(true);
-		burningFire.transform.position = burningFire.transform.position.Z(
-			Mathf.InverseLerp(screenYBounds.from, screenYBounds.to, burningFire.transform.position.y));
 	}
 
 	[TimelineMethod]
