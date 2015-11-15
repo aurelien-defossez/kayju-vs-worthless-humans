@@ -50,6 +50,7 @@ public class KaijuCursor : MonoBehaviour {
                     Debug.Log("Kaiju_Stomp");
                     Transform stomp = (Transform)Instantiate(stompPrefab);
                     stomp.position = this.transform.position;
+					stomp.GetComponent<Stomp>().Init(scene);
                     stompStamina.use(stompStaminaUsage);
                 }
                 else {

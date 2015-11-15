@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 
 public class Stomp : MonoBehaviour {
     public Transform shadow;
@@ -13,15 +10,19 @@ public class Stomp : MonoBehaviour {
 	public Vector2 initialFistPosition;
 	public AudioClip stompPreparationSound;
 	public AudioClip stompHitSound;
+	public float maxSceneShake;
 
     private SpriteRenderer shadowSprite;
+	private Transform scene;
 
-    public void Start() {
-        shadowSprite = shadow.GetComponentInChildren<SpriteRenderer>();
+	public void Init(Transform scene) {
+		this.scene = scene;
+
+		shadowSprite = shadow.GetComponentInChildren<SpriteRenderer>();
 		initialFistPosition = fist.position;
 		transform.position = transform.position.Z(0);
 
-        timeline.Play();
+		timeline.Play();
 
 		Utils.PlayPitchedClipAt(stompPreparationSound, transform.position);
 	}
@@ -45,18 +46,22 @@ public class Stomp : MonoBehaviour {
 	}
 
 	[TimelineMethod]
-    public void Hit(TimelineCall options)
-    {
+    public void Hit(TimelineCall options){
 		shadowSprite.enabled = false;
         hitCollider.enabled=true;
 		Utils.PlayPitchedClipAt(stompHitSound, transform.position);
 	}
 
-    [TimelineMethod]
-    public void HitEnd(TimelineCall options)
-    {
+	[TimelineMethod]
+	public void Shake(TimelineCall options) {
+		scene.position = scene.position.X(Random.Range(-maxSceneShake, maxSceneShake));
+	}
+
+	[TimelineMethod]
+    public void HitEnd(TimelineCall options) {
         hitCollider.enabled = false;
         blockCollider.enabled = true;
+		scene.position = scene.position.X(0);
     }
 
     [TimelineMethod]

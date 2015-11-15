@@ -211,6 +211,13 @@ MonoBehaviour:
     started: 0
     finished: 0
   - script: {fileID: 11488294}
+    method: Shake
+    from: 1
+    to: 1.10000002
+    parameter: 0
+    started: 0
+    finished: 0
+  - script: {fileID: 11488294}
     method: HitEnd
     from: 1.10000002
     to: 1.10000002
@@ -228,6 +235,13 @@ MonoBehaviour:
     method: Shutdown
     from: 2
     to: 2
+    parameter: 0
+    started: 0
+    finished: 0
+  - script: {fileID: 11488294}
+    method: GrowShadow
+    from: 0
+    to: 0
     parameter: 0
     started: 0
     finished: 0
@@ -254,6 +268,7 @@ MonoBehaviour:
   stompPreparationSound: {fileID: 8300000, guid: c1dc6491f04e19d40acce2a770720143,
     type: 3}
   stompHitSound: {fileID: 8300000, guid: 303fa5d81a7508d4cb1d0b43eb1d737f, type: 3}
+  maxSceneShake: .5
 --- !u!212 &21271632
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -305,7 +320,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4d16f0b8c5c775240a63d6f1f4f49665, type: 3}
-  m_Color: {r: .544117689, g: .544117689, b: .544117689, a: .533999979}
+  m_Color: {r: .544117689, g: .544117689, b: .544117689, a: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -364,6 +379,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
       value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxSceneShake
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

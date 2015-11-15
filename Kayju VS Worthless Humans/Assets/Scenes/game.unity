@@ -2123,7 +2123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604e50d2273acfb428f78e8ad266c917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstPlayerIsHuman: 1
+  firstPlayerIsHuman: 0
   infiniteStamina: 0
 --- !u!114 &1691072652
 MonoBehaviour:
