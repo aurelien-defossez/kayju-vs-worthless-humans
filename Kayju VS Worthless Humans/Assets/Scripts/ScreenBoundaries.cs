@@ -16,10 +16,10 @@ public class ScreenBoundaries : MonoBehaviour {
         //Debug.Log(worldScreenHeight);
         //Debug.Log(worldScreenWidth);
 
-        colliderNorth.offset= new Vector2(0,(worldScreenHeight * 0.9f / 2f));
+        colliderNorth.offset = new Vector2(0, (worldScreenHeight * 0.9f / 2f));
         colliderSouth.offset = new Vector2(0, (-worldScreenHeight * 0.9f / 2f));
-        colliderEast.offset = new Vector2((worldScreenWidth * 0.9f / 2f),0);
-        colliderWest.offset = new Vector2((-worldScreenWidth * 0.9f / 2f), 0);
+        colliderEast.offset = new Vector2((worldScreenWidth * 0.72f / 2f), 0);
+        colliderWest.offset = new Vector2((-worldScreenWidth * 0.72f / 2f), 0);
 
         //Debug.Log(colliderNorth.offset);
         //Debug.Log(colliderSouth.offset);
