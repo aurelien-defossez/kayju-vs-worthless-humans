@@ -11,6 +11,7 @@ public class KaijuCursor : MonoBehaviour {
     public Transform stompPrefab;
     public Transform bilePrefab;
     public Transform laserPrefab;
+	public Transform firePrefab;
 
     public StaminaBar stompStamina;
     public StaminaBar bileStamina;
@@ -28,6 +29,10 @@ public class KaijuCursor : MonoBehaviour {
 	public float laserRandomForce;
 	public float laserRandomRotation;
 
+	public float fireSpitInterval;
+
+	bool spittingFire;
+	float fireTimer;
 	Laser laser;
 	Vector2 randomLaserVelocity;
 
@@ -53,7 +58,7 @@ public class KaijuCursor : MonoBehaviour {
             }
 
             // LASER!!!
-            if (Input.GetButtonDown("Kaiju_Laser") && laserStamina.getValue() > 0.1f) {
+            if (Input.GetButtonDown("Kaiju_Laser") && laserStamina.getValue() >= laserStaminaUsage * 0.25f) {
                 Debug.Log("Kaiju_Laser");
                 Transform laserTransform = (Transform)Instantiate(laserPrefab);
 				laserTransform.position = this.transform.position;
@@ -92,12 +97,32 @@ public class KaijuCursor : MonoBehaviour {
                 }
             }
 
-            // KAIJU FIRE!
-            if (Input.GetButtonDown("Kaiju_Fire") && fireStamina.getValue() > 0.1f) {
-                Debug.Log("Kaiju_Fire");
+            // KAIJU FAYA ATTAKU DESU!
+            if (Input.GetButtonDown("Kaiju_Fire") && fireStamina.getValue() >= fireStaminaUsage) {
+				Debug.Log("Kaiju_Fire");
+				spittingFire = true;
+				fireTimer = 0;
             }
 
-            Vector2 direction = new Vector2(Input.GetAxis("Horizontal_Kaiju"), Input.GetAxis("Vertical_Kaiju"));
+			if (spittingFire) {
+				if (fireTimer <= 0) {
+					Transform fireTransform = (Transform)Instantiate(firePrefab);
+					Fire fire = (Fire)fireTransform.GetComponent<Fire>();
+					fire.Init(scene, transform.position);
+
+					fireStamina.use(fireStaminaUsage);
+					fireTimer += fireSpitInterval;
+					Debug.Log(" Fire! " + fireStamina.getValue());
+				}
+
+				fireTimer -= Time.deltaTime;
+
+				if (Input.GetButtonUp("Kaiju_Fire") || fireStamina.getValue() < fireStaminaUsage) {
+					spittingFire = false;
+				}
+			}
+
+			Vector2 direction = new Vector2(Input.GetAxis("Horizontal_Kaiju"), Input.GetAxis("Vertical_Kaiju"));
             body.velocity = direction * speed;
 			body.velocity += randomLaserVelocity * Time.deltaTime;
 

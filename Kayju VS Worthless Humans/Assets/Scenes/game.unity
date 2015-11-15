@@ -1757,7 +1757,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
       propertyPath: fireStaminaUsage
-      value: 2
+      value: .150000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
+      propertyPath: firePrefab
+      value: 
+      objectReference: {fileID: 482874, guid: 9fde7d6161aae1d469a5f9869f933e08, type: 2}
+    - target: {fileID: 11421048, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
+      propertyPath: fireSpitInterval
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}
