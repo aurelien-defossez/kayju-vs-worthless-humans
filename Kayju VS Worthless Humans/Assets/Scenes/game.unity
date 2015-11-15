@@ -262,7 +262,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2cf6844cf29dbf04aad97512420eef60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &84705096
@@ -305,7 +305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadSpeed: .600000024
-  value: 0
+  minSize: 0
+  staminaBar: {fileID: 0}
 --- !u!1 &106264411
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadSpeed: .200000003
-  value: 0
+  minSize: 0
+  staminaBar: {fileID: 0}
 --- !u!1 &354733814
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +461,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadSpeed: .200000003
-  value: 0
+  minSize: 0
+  staminaBar: {fileID: 0}
 --- !u!1001 &389198952
 Prefab:
   m_ObjectHideFlags: 0
@@ -1210,7 +1213,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: c3b2cf938cbf4834d84a83800ae3d734, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1053165222 stripped
@@ -1619,7 +1622,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b665dd175300d8c41b43f9e19ea797b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1322187711
@@ -1636,7 +1639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1322187712
 Transform:
   m_ObjectHideFlags: 0
@@ -2038,7 +2041,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadSpeed: .200000003
-  value: 0
+  minSize: 0
+  staminaBar: {fileID: 0}
 --- !u!4 &1533912223
 Transform:
   m_ObjectHideFlags: 0
@@ -2321,7 +2325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1770797967
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2472,7 +2476,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5e055dc1a6c0d644ea62add3b436e0b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1939112757
