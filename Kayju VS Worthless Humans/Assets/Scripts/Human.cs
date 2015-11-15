@@ -129,6 +129,7 @@ public class Human : MonoBehaviour {
                     Human collidedHuman = collider.gameObject.GetComponent<Human>();
                     if (collidedHuman.IsPlayer()) {
                         master = collidedHuman.SetSlave(this);
+                        ScoreBoard.GetComponent<ScoringBoard>().Score_up(collidedHuman.player);
                     }
                 }
             }
