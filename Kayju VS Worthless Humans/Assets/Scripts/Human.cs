@@ -58,6 +58,10 @@ public class Human : MonoBehaviour {
         SetPosture();
     }
 
+	public int GetLength() {
+		return slave == null ? 1 : slave.GetLength() + 1;
+	}
+
     void SetVelocity() {
         if (IsPlayer()) {
             SetVelocityPlayer();

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     public int firstPlayerIndex;
     public Range spawnRange;
 	public AudioClip[] runSounds;
+	public int[] runSoundLimits;
 
 	Human[] players;
 	AudioSource currentRunSound;
@@ -41,6 +42,24 @@ public class GameManager : MonoBehaviour {
 
 		// Play sound
 		if (currentRunSound == null) {
+			int length = 0;
+			for(int i = 0; i < maxNbPlayers; i++) {
+				Human player = players[i];
+
+				if (player != null) {
+					length += player.GetLength();
+				}
+			}
+
+			AudioClip source;
+			if (length < runSoundLimits[0]) {
+				source = runSounds[0];
+			} else if (length < runSoundLimits[1]) {
+				source = runSounds[1];
+			} else {
+				source = runSounds[2];
+			}
+
 			currentRunSound = Utils.PlayPitchedClipAt(runSounds[0], gameObject, Random.Range(0.8f, 1.2f));
 			currentRunSound.volume = 0.2f;
         }
