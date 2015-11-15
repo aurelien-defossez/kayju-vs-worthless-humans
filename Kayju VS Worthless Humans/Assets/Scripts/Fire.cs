@@ -11,7 +11,7 @@ public class Fire : MonoBehaviour {
 
 	public void Init(Transform scene, Vector3 target) {
 		this.scene = scene;
-		this.target = target.Z(5);
+		this.target = target.Z(0);
 
 		float angle = Vector2.Angle(spitSpawn - this.target, spitSpawn);
 		if (target.x > 0) {
@@ -35,5 +35,15 @@ public class Fire : MonoBehaviour {
 		transform.parent = scene;
 		spitFire.SetActive(false);
 		burningFire.SetActive(true);
-    }
+	}
+
+	[TimelineMethod]
+	public void EndFire(TimelineCall options) {
+		burningFire.GetComponentInChildren<Animator>().SetTrigger(Animator.StringToHash("stop"));
+	}
+
+	[TimelineMethod]
+	public void Kill(TimelineCall options) {
+		Destroy(gameObject);
+	}
 }

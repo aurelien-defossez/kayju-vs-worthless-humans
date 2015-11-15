@@ -250,6 +250,20 @@ MonoBehaviour:
     parameter: 0
     started: 0
     finished: 0
+  - script: {fileID: 11435802}
+    method: EndFire
+    from: 3
+    to: 3
+    parameter: 0
+    started: 0
+    finished: 0
+  - script: {fileID: 11435802}
+    method: Kill
+    from: 3.4000001
+    to: 3.4000001
+    parameter: 0
+    started: 0
+    finished: 0
 --- !u!212 &21208670
 SpriteRenderer:
   m_ObjectHideFlags: 1
