@@ -66,7 +66,7 @@ public class KaijuCursor : MonoBehaviour {
 				laser = (Laser)laserTransform.GetComponent<Laser>();
 				laser.scene = scene;
                 randomLaserVelocity = Quaternion.Euler(0, 0, Random.value * 360) * Vector2.up * laserRandomForce;
-				laserKilling.volume = 1;
+				laserKilling.volume = 0.4f;
                 laserKilling.Play();
             }
 
