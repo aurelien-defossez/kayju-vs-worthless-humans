@@ -3,6 +3,7 @@
 public class Stomp : MonoBehaviour {
     public Transform shadow;
 	public Transform fist;
+	public GameObject dust;
     public Timeline timeline;
     public Range shadowOpacity;
     public CircleCollider2D hitCollider;
@@ -18,6 +19,7 @@ public class Stomp : MonoBehaviour {
 	public void Init(Transform scene) {
 		this.scene = scene;
 
+		dust.SetActive(false);
 		shadowSprite = shadow.GetComponentInChildren<SpriteRenderer>();
 		initialFistPosition = fist.position;
 		transform.position = transform.position.Z(0);
@@ -50,6 +52,7 @@ public class Stomp : MonoBehaviour {
 		shadowSprite.enabled = false;
         hitCollider.enabled=true;
 		Utils.PlayPitchedClipAt(stompHitSound, transform.position);
+		dust.SetActive(true);
 	}
 
 	[TimelineMethod]
@@ -58,13 +61,18 @@ public class Stomp : MonoBehaviour {
 	}
 
 	[TimelineMethod]
-    public void HitEnd(TimelineCall options) {
-        hitCollider.enabled = false;
-        blockCollider.enabled = true;
+	public void HitEnd(TimelineCall options) {
+		hitCollider.enabled = false;
+		blockCollider.enabled = true;
 		scene.position = scene.position.X(0);
-    }
+	}
 
-    [TimelineMethod]
+	[TimelineMethod]
+	public void DustEnd(TimelineCall options) {
+		dust.SetActive(false);
+	}
+
+	[TimelineMethod]
     public void Shutdown(TimelineCall options)
     {
         Destroy(gameObject);
