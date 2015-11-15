@@ -214,6 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9771ea1807592d428d86082e0d6d0ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenYBounds:
+    from: -5
+    to: 5
   spitSpawn: {x: 0, y: -7, z: 5}
   timeline: {fileID: 11438740}
   spitFire: {fileID: 103132}
