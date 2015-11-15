@@ -2,14 +2,15 @@
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
-
     public Human humanPrefab;
     public Transform scene;
-    public int maxNbPlayers;
-    public int firstPlayerIndex;
-    public Range spawnRange;
+	public int maxNbPlayers;
+	public int firstPlayerIndex;
+	public Range spawnRange;
+	public AudioClip[] runSounds;
 
-    Human[] players;
+	Human[] players;
+	AudioSource currentRunSound;
 
     // Use this for initialization
     void Start() {
@@ -18,15 +19,22 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        for (int i = 0; i < maxNbPlayers; i++) {
-            int index = (firstPlayerIndex + i);
+		// Connect players
+		for (int i = 0; i < maxNbPlayers; i++) {
+			int index = (firstPlayerIndex + i);
             if (players[i] == null && Input.GetButtonDown("Action_J" + index)) {
-                Debug.Log("Player " + index + " connected.");
-                Human player = Instantiate(humanPrefab);
-                player.transform.position = new Vector3(spawnRange.Rand(), 0, 0);
-                player.transform.SetParent(scene);
-                player.SetPlayer(index);
-            }
+				Debug.Log("Player " + index + " connected.");
+				Human player = Instantiate(humanPrefab);
+				player.transform.position = new Vector3(spawnRange.Rand(), 0, 0);
+				player.transform.SetParent(scene);
+				player.SetPlayer(index);
+			}
+		}
+
+		// Play sound
+		if (currentRunSound == null) {
+			currentRunSound = Utils.PlayPitchedClipAt(runSounds[0], gameObject, Random.Range(0.8f, 1.2f));
+			currentRunSound.volume = 0.2f;
         }
     }
 }
