@@ -17,6 +17,11 @@ public class KaijuCursor : MonoBehaviour {
     public StaminaBar laserStamina;
     public StaminaBar fireStamina;
 
+	public float stompStaminaUsage;
+    public float bileStaminaUsage;
+    public float laserStaminaUsage;
+    public float fireStaminaUsage;
+
 	public AudioSource laserStarting;
 	public AudioSource laserKilling;
 
@@ -40,7 +45,7 @@ public class KaijuCursor : MonoBehaviour {
                     Debug.Log("Kaiju_Stomp");
                     Transform stomp = (Transform)Instantiate(stompPrefab);
                     stomp.position = this.transform.position;
-                    stompStamina.use(1f);
+                    stompStamina.use(stompStaminaUsage);
                 }
                 else {
                     Debug.Log("You've not enough minerals");
@@ -61,7 +66,7 @@ public class KaijuCursor : MonoBehaviour {
 
             if (laser != null) {
                 laser.setPosition(this.transform.position);
-                laserStamina.use(Time.deltaTime * 4f);
+                laserStamina.use(Time.deltaTime * laserStaminaUsage);
 
 				if (Input.GetButtonUp("Kaiju_Laser") || laserStamina.getValue() <= 0) {
                     laser.Kill();
@@ -80,7 +85,7 @@ public class KaijuCursor : MonoBehaviour {
                     Transform bile = (Transform)Instantiate(bilePrefab);
                     bile.position = this.transform.position.Z(7);
                     bile.SetParent(scene);
-                    bileStamina.use(0.5f);
+                    bileStamina.use(bileStaminaUsage);
                 }
                 else {
                     Debug.Log("You require more vespene gaz");
