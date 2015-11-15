@@ -3,18 +3,16 @@ using System.Collections;
 
 public class Human : MonoBehaviour {
     public float initialSpeed;
-    public Transform scene;
     public Human master;
     public Human slave;
 
     public Transform BloodStain;
     public Transform Grill;
 
-
-    int player;
-    bool isPlayer;
-    string input_x = "Horizontal_J";
-    string input_y = "Vertical_J";
+    public int player;
+    public bool isPlayer =false;
+    public string input_x;
+    public string input_y;
 
     Animator anim;
     Rigidbody2D body;
@@ -29,32 +27,15 @@ public class Human : MonoBehaviour {
     protected float angle;
 
     // Use this for initialization
-    void Start() {
+     void Start() {
         anim = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
-
         layerStomp = LayerMask.NameToLayer("Stomp");
         layerBile = LayerMask.NameToLayer("Bile");
         layerLaser = LayerMask.NameToLayer("Laser");
         layerPlayer = LayerMask.NameToLayer("Player");
-        speed = initialSpeed;
         ScoreBoard = GameObject.Find("GameManager");
-        if (player > 0) {
-            #region Kaiju_player
-            if (KaijuDebug.instance.firstPlayerIsHuman) {
-                input_x = "Horizontal_Kaiju";
-                input_y = "Vertical_Kaiju";
-            }
-            else {
-                input_x = "Horizontal_J" + player;
-                input_y = "Vertical_J" + player;
-            }
-            #endregion
-            isPlayer = true;
-        }
-        else {
-            isPlayer = false;
-        }
+        speed = initialSpeed;
     }
 
     public bool IsPlayer() { return isPlayer; }
@@ -63,16 +44,8 @@ public class Human : MonoBehaviour {
     // To pass the lead
     public void SetPlayer(int player) {
         this.player = player;
-        #region Kaiju_player
-        if (KaijuDebug.instance.firstPlayerIsHuman) {
-            input_x = "Horizontal_Kaiju";
-            input_y = "Vertical_Kaiju";
-        }
-        else {
-            input_x = "Horizontal_J" + player;
-            input_y = "Vertical_J" + player;
-        }
-        #endregion
+        input_x = "Horizontal_J" + player;
+        input_y = "Vertical_J" + player;
         isPlayer = true;
     }
 
@@ -169,7 +142,7 @@ public class Human : MonoBehaviour {
         else { // (death == 2) {
             corpse = (Transform)Instantiate(Grill);
         }
-        corpse.SetParent(scene);
+        corpse.SetParent(this.transform.parent);
         corpse.position = this.transform.position.Z(8);
 
 
