@@ -11,7 +11,7 @@ public class Human : MonoBehaviour {
     public Transform Grill;
 
 
-    public int player;
+    int player;
     bool isPlayer;
     string input_x = "Horizontal_J";
     string input_y = "Vertical_J";
@@ -46,8 +46,8 @@ public class Human : MonoBehaviour {
                 input_y = "Vertical_Kaiju";
             }
             else {
-                input_x += player;
-                input_y += player;
+                input_x = "Horizontal_J" + player;
+                input_y = "Vertical_J" + player;
             }
             #endregion
             isPlayer = true;
@@ -69,8 +69,8 @@ public class Human : MonoBehaviour {
             input_y = "Vertical_Kaiju";
         }
         else {
-            input_x += player;
-            input_y += player;
+            input_x = "Horizontal_J" + player;
+            input_y = "Vertical_J" + player;
         }
         #endregion
         isPlayer = true;
