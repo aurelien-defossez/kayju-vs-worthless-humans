@@ -1436,6 +1436,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   humanPrefab: {fileID: 11420000, guid: 26a35ef9536bbe343b2c04f66c05f202, type: 2}
   scene: {fileID: 1611190516}
+  maxNbPlayers: 3
+  firstPlayerIndex: 2
+  spawnRange:
+    from: -6
+    to: 6
 --- !u!1001 &1099062543
 Prefab:
   m_ObjectHideFlags: 0
@@ -2454,7 +2459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPlayerIsHuman: 0
-  infiniteStamina: 1
+  infiniteStamina: 0
 --- !u!114 &1691072652
 MonoBehaviour:
   m_ObjectHideFlags: 0
