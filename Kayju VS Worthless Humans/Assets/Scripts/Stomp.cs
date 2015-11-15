@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class Stomp : MonoBehaviour {
     public Transform shadow;
 	public Transform fist;
-    public float maxSize;
     public Timeline timeline;
     public Range shadowOpacity;
     public CircleCollider2D hitCollider;
@@ -18,9 +17,9 @@ public class Stomp : MonoBehaviour {
     private SpriteRenderer shadowSprite;
 
     public void Start() {
-        shadowSprite = shadow.GetComponent<SpriteRenderer>();
+        shadowSprite = shadow.GetComponentInChildren<SpriteRenderer>();
 		initialFistPosition = fist.position;
-		transform.position = transform.position.Z(3);
+		transform.position = transform.position.Z(0);
 
         timeline.Play();
 
@@ -29,7 +28,11 @@ public class Stomp : MonoBehaviour {
 
 	[TimelineMethod]
 	public void GrowShadow(TimelineCall options) {
-		shadow.localScale = new Vector2(1, 1) * options.progress * maxSize;
+		if (options.parameter == 1) {
+			options.progress = 1 - options.progress;
+		}
+
+		shadow.localScale = new Vector2(1, 1) * options.progress;
 		shadowSprite.color = shadowSprite.color.A(shadowOpacity.Lerp(options.progress));
 	}
 
@@ -38,14 +41,14 @@ public class Stomp : MonoBehaviour {
 		Vector2 position2d = Vector2.Lerp(initialFistPosition, transform.position,
 			options.parameter == 0 ? options.progress : 1 - options.progress);
 
-        fist.position = new Vector3(position2d.x, position2d.y, 1);
+        fist.position = new Vector3(position2d.x, position2d.y, 0);
 	}
 
 	[TimelineMethod]
     public void Hit(TimelineCall options)
     {
-        hitCollider.enabled=true;
 		shadowSprite.enabled = false;
+        hitCollider.enabled=true;
 		Utils.PlayPitchedClipAt(stompHitSound, transform.position);
 	}
 
