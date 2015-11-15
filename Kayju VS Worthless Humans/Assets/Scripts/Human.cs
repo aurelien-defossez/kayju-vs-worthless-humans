@@ -31,7 +31,7 @@ public abstract class Human : MonoBehaviour {
         layerLaser = LayerMask.NameToLayer("Laser");
 
         speed = initialSpeed;
-        ScoreBoard = GameObject.Find("Score");
+        ScoreBoard = GameObject.Find("GameManager");
         Init();
     }
 
