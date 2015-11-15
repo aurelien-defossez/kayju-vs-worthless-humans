@@ -11,6 +11,7 @@ public class ScoringBoard : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        scoreI = new int[4];
         scoreI[0] = 0;
         scoreI[1] = 0;
         scoreI[2] = 0;
