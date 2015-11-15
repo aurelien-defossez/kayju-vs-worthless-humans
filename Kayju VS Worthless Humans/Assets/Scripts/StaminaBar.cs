@@ -3,10 +3,13 @@ using System.Collections;
 
 public class StaminaBar : MonoBehaviour {
     public float reloadSpeed;
-    public float value;
+	public float minSize;
+	public Transform staminaBar;
 
-    // Use this for initialization
-    void Start() {
+	float value;
+
+	// Use this for initialization
+	void Start() {
 		value = 1;
     }
 
@@ -15,6 +18,10 @@ public class StaminaBar : MonoBehaviour {
         if (value < 1f) {
             value += Time.deltaTime * reloadSpeed;
 			value = Mathf.Min(value, 1);
+
+			if (staminaBar != null) {
+				staminaBar.localScale = Vector2.one * Mathf.Lerp(minSize, 1, value);
+			}
         }
     }
 

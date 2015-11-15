@@ -14,7 +14,7 @@ GameObject:
   - 212: {fileID: 21278982}
   - 95: {fileID: 9544620}
   m_Layer: 9
-  m_Name: Player
+  m_Name: Human
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,12 +90,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialSpeed: 10
-  scene: {fileID: 0}
   master: {fileID: 0}
   slave: {fileID: 0}
   BloodStain: {fileID: 463634, guid: b3836deeffc4878479921276fa7709e0, type: 2}
   Grill: {fileID: 418162, guid: 6acdaef55b7677b4faf727591e2e9f27, type: 2}
   player: 0
+  isPlayer: 0
+  input_x: 
+  input_y: 
 --- !u!212 &21278982
 SpriteRenderer:
   m_ObjectHideFlags: 1
