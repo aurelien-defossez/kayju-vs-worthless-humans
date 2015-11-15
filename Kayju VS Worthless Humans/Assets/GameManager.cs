@@ -7,12 +7,12 @@ public class GameManager : MonoBehaviour {
     public int maxNbPlayers;
     public int firstPlayerIndex;
     public Range spawnRange;
-	public AudioClip[] runSounds;
-	public int[] runSoundLimits;
+    public AudioClip[] runSounds;
+    public int[] runSoundLimits;
 
-	Human[] players;
-	AudioSource currentRunSound;
-	 float timer;
+    Human[] players;
+    AudioSource currentRunSound;
+    float timer;
     float worldScreenHeight;
     float worldScreenWidth;
 
@@ -28,40 +28,43 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-		// Connect players
-		for (int i = 0; i < maxNbPlayers; i++) {
-			int index = (firstPlayerIndex + i);
+        // Connect players
+        for (int i = 0; i < maxNbPlayers; i++) {
+            int index = (firstPlayerIndex + i);
             if (players[i] == null && Input.GetButtonDown("Action_J" + index)) {
-				Debug.Log("Player " + index + " connected.");
-				Human player = Instantiate(humanPrefab);
-				player.transform.position = new Vector3(spawnRange.Rand(), 0, 0);
-				player.transform.SetParent(scene);
-				player.SetPlayer(index);
-			}
-		}
+                Debug.Log("Player " + index + " connected.");
+                Human player = Instantiate(humanPrefab);
+                player.transform.position = new Vector3(spawnRange.Rand(), 0, 0);
+                player.transform.SetParent(scene);
+                player.SetPlayer(index);
+                players[i] = player;
+            }
+        }
 
-		// Play sound
-		if (currentRunSound == null) {
-			int length = 0;
-			for(int i = 0; i < maxNbPlayers; i++) {
-				Human player = players[i];
+        // Play sound
+        if (currentRunSound == null) {
+            int length = 0;
+            for (int i = 0; i < maxNbPlayers; i++) {
+                Human player = players[i];
 
-				if (player != null) {
-					length += player.GetLength();
-				}
-			}
+                if (player != null) {
+                    length += player.GetLength();
+                }
+            }
 
-			AudioClip source;
-			if (length < runSoundLimits[0]) {
-				source = runSounds[0];
-			} else if (length < runSoundLimits[1]) {
-				source = runSounds[1];
-			} else {
-				source = runSounds[2];
-			}
+            AudioClip source;
+            if (length < runSoundLimits[0]) {
+                source = runSounds[0];
+            }
+            else if (length < runSoundLimits[1]) {
+                source = runSounds[1];
+            }
+            else {
+                source = runSounds[2];
+            }
 
-			currentRunSound = Utils.PlayPitchedClipAt(runSounds[0], gameObject, Random.Range(0.8f, 1.2f));
-			currentRunSound.volume = 0.2f;
+            currentRunSound = Utils.PlayPitchedClipAt(runSounds[0], gameObject, Random.Range(0.8f, 1.2f));
+            currentRunSound.volume = 0.2f;
         }
 
         timer -= Time.deltaTime;
@@ -71,7 +74,7 @@ public class GameManager : MonoBehaviour {
             Human pnj = Instantiate(humanPrefab);
 
             pnj.transform.position = new Vector3(
-				Random.Range(-worldScreenWidth / 2, worldScreenWidth / 2), worldScreenHeight / 2, 0);
+                Random.Range(-worldScreenWidth / 2, worldScreenWidth / 2), worldScreenHeight / 2, 0);
             pnj.transform.SetParent(scene);
 
 
