@@ -379,7 +379,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 556014283}
   - 212: {fileID: 556014284}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: scoring kaiju
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +951,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1512128482}
   - 212: {fileID: 1512128481}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: scoring humans
   m_TagString: Untagged
   m_Icon: {fileID: 0}
