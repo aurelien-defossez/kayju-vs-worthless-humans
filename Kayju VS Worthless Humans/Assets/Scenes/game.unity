@@ -1115,6 +1115,10 @@ Prefab:
       propertyPath: actions.Array.data[1].to
       value: .400000006
       objectReference: {fileID: 0}
+    - target: {fileID: 418148, guid: 694b44e00ee2ec841beabd5a3d8d0d21, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 694b44e00ee2ec841beabd5a3d8d0d21, type: 2}
   m_IsPrefabParent: 0
@@ -2341,10 +2345,6 @@ Prefab:
     - target: {fileID: 181852, guid: 694b44e00ee2ec841beabd5a3d8d0d21, type: 2}
       propertyPath: m_Name
       value: Left
-      objectReference: {fileID: 0}
-    - target: {fileID: 418148, guid: 694b44e00ee2ec841beabd5a3d8d0d21, type: 2}
-      propertyPath: m_LocalScale.x
-      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 694b44e00ee2ec841beabd5a3d8d0d21, type: 2}
