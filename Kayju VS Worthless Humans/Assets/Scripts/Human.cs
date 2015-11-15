@@ -36,6 +36,7 @@ public class Human : MonoBehaviour {
         layerPlayer = LayerMask.NameToLayer("Player");
         ScoreBoard = GameObject.Find("GameManager");
         speed = initialSpeed;
+        anim.SetInteger("Team", player);
     }
 
     public bool IsPlayer() { return isPlayer; }
