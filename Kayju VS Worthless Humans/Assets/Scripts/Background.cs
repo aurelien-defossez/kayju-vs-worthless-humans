@@ -10,7 +10,7 @@ public class Background : MonoBehaviour {
         Sprite sp = GetComponent<SpriteRenderer>().sprite;
         float width = sp.texture.width / sp.pixelsPerUnit;
         float height = sp.texture.height / sp.pixelsPerUnit;
-        gameObject.transform.localScale = new Vector3(worldScreenWidth / width, worldScreenHeight / height, 1);
+        gameObject.transform.localScale = new Vector3(worldScreenWidth / width, worldScreenHeight*1.1f / height, 1);
 
     }
     void OnBecameInvisible() {
