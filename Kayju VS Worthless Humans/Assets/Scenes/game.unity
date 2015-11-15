@@ -2812,7 +2812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundPrefab: {fileID: 442050, guid: e626ea96d5db13f4d87dbdfdca716ac8, type: 2}
   scene: {fileID: 1611190516}
-  scrollingSpeed: 1
+  scrollingSpeed: 2
 --- !u!4 &2114719299 stripped
 Transform:
   m_PrefabParentObject: {fileID: 498238, guid: 2578d06290aaf074eae1bcbcfcc0f4f6, type: 2}

@@ -12,11 +12,13 @@ public class BackgroundManager : MonoBehaviour {
     void Start() {
         float worldScreenHeight = (float)(Camera.main.orthographicSize * 2.0);
         background = (Transform)Instantiate(backgroundPrefab);
-        background.parent = scene;
         background.position = new Vector3(0, 0, 10);
+        background.parent = scene;
         background2 = (Transform)Instantiate(backgroundPrefab);
+        Sprite sp = background2.GetComponent<SpriteRenderer>().sprite;
+        float height = sp.texture.height / sp.pixelsPerUnit;
+        background2.position = new Vector3(0, height, 10);
         background2.parent = scene;
-        background2.position = new Vector3(0, worldScreenHeight, 10);
     }
     void Update() {
         scene.position = new Vector3(scene.position.x, scene.position.y - scrollingSpeed * Time.deltaTime, 0);
