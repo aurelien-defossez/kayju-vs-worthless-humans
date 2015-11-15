@@ -70,7 +70,8 @@ public class GameManager : MonoBehaviour {
 
             Human pnj = Instantiate(humanPrefab);
 
-            pnj.transform.position = new Vector3(Random.Range(-worldScreenWidth / 2, worldScreenWidth / 2), Random.Range(-worldScreenHeight / 2, worldScreenHeight / 2), 0);
+            pnj.transform.position = new Vector3(
+				Random.Range(-worldScreenWidth / 2, worldScreenWidth / 2), worldScreenHeight / 2, 0);
             pnj.transform.SetParent(scene);
 
 
