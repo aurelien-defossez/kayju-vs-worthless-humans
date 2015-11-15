@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
 public class ScoringBoard : MonoBehaviour {
 
-    public Dictionary<string, int> score;
-    public GUIText scoreText;
-    int stext;
+    public Dictionary<string, int>  score;
+    public Transform                TextObject;
+    Text                            scoreText;
+    int                             stext;
 
     // Use this for initialization
     void Start () {
@@ -16,16 +18,17 @@ public class ScoringBoard : MonoBehaviour {
         score["J3"] = 0;
         score["J4"] = 0;
         stext = 0;
-        scoreText.text = "LORD LIZARD DESTROY NONE OF THOSE WORTHLESS HUMANS !!";
+        scoreText = TextObject.GetComponent<Text>();
+        scoreText.text = "0";
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (stext != score["Kaiju"])
+        if (scoreText != null &&
+            stext != score["Kaiju"])
         {
             stext = score["Kaiju"];
-            scoreText.text = "LORD LIZARD DESTROY " + stext + " OF THOSE WORTHLESS HUMANS !!";
-            Debug.Log("SCORE UPDATED !!! SCORE IS NOW OF " + stext);
+            scoreText.text = stext.ToString();
         }
     }
 }
