@@ -1331,7 +1331,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5041149bff830e549ac365426b2abd6c, type: 3}
   - {fileID: 8300000, guid: c47df1582c112ad4a8142805eb827192, type: 3}
   - {fileID: 8300000, guid: 1118f15a2375ab745b787e25897a0468, type: 3}
-  runSoundLimits: 
+  runSoundLimits: 0a00000014000000
 --- !u!1 &1105941811
 GameObject:
   m_ObjectHideFlags: 0
