@@ -5,30 +5,28 @@ using System.Collections.Generic;
 
 public class ScoringBoard : MonoBehaviour {
 
-    public Dictionary<string, int>  score;
-    public Transform                TextObject;
-    Text                            scoreText;
-    int                             stext;
+    public Dictionary<string, int> score;
+    int[]  scoreI;
+    public Text[] stext;
 
     // Use this for initialization
     void Start () {
-        score = new Dictionary<string, int>();
-        score["Kaiju"] = 0;
-        score["J2"] = 0;
-        score["J3"] = 0;
-        score["J4"] = 0;
-        stext = 0;
-        scoreText = TextObject.GetComponent<Text>();
-        scoreText.text = "0";
+        scoreI[0] = 0;
+        scoreI[1] = 0;
+        scoreI[2] = 0;
+        scoreI[3] = 0;
+        foreach (Text elem in stext)
+            elem.text = "0";
     }
 	
+    void Score_up(int target)
+    {
+        scoreI[target] += 1;
+        stext[target].text = scoreI[target].ToString();
+    }
+
 	// Update is called once per frame
 	void Update () {
-        if (scoreText != null &&
-            stext != score["Kaiju"])
-        {
-            stext = score["Kaiju"];
-            scoreText.text = stext.ToString();
-        }
+
     }
 }
