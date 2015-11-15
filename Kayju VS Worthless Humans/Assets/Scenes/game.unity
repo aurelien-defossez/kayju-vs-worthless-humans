@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3d060d8f26ea24a9dbdddda5d943f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nb_players: 2
+  nb_players: 1
   stext:
   - {fileID: 38513681}
   - {fileID: 1461552846}
@@ -1843,10 +1843,6 @@ Prefab:
       propertyPath: scene
       value: 
       objectReference: {fileID: 1611190516}
-    - target: {fileID: 11441688, guid: 533d2c40ba5c0ba43a2358da9b2352c6, type: 2}
-      propertyPath: initialSpeed
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 533d2c40ba5c0ba43a2358da9b2352c6, type: 2}
   m_IsPrefabParent: 0

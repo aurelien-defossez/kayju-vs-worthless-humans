@@ -144,13 +144,19 @@ public class Human : MonoBehaviour {
     void Die_Human(int death) {
         if (slave != null) {
             slave.master = master;
+            if (IsPlayer()) {
+                slave.SetPlayer(player);
+            }
+        }
+        else {
+            if (IsPlayer()) {
+                ScoreBoard.GetComponent<ScoringBoard>().removePlayer(player);
+            }
         }
         if (master != null) {
             master.slave = slave;
         }
-        if (IsPlayer()) {
-            slave.SetPlayer(player);
-        }
+
 
         SpriteRenderer rend = GetComponent<SpriteRenderer>();
 
