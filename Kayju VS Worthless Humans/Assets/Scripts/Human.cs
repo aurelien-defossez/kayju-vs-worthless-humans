@@ -104,7 +104,7 @@ public abstract class Human : MonoBehaviour {
         corpse.position = this.transform.position.Z(8);
 
 
-        ScoreBoard.GetComponent<ScoringBoard>().score["Kaiju"] += 1;
+        ScoreBoard.GetComponent<ScoringBoard>().Score_up(0);
         // Death animation goes here, parameter defines which one is played.
         Destroy(gameObject);
     }

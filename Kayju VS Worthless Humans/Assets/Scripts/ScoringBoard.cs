@@ -20,7 +20,7 @@ public class ScoringBoard : MonoBehaviour {
             elem.text = "0";
     }
 	
-    void Score_up(int target)
+    public void Score_up(int target)
     {
         scoreI[target] += 1;
         stext[target].text = scoreI[target].ToString();
