@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0606542c57ef02347afab50112c080cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 0
+  initialSpeed: 10
   scene: {fileID: 0}
   master: {fileID: 0}
   slave: {fileID: 0}
