@@ -313,7 +313,7 @@ MonoBehaviour:
   hitCollider: {fileID: 5861724}
   blockCollider: {fileID: 5864834}
   initialFistPosition: {x: 0, y: 0}
-  stompPreparationSound: {fileID: 8300000, guid: c1dc6491f04e19d40acce2a770720143,
+  stompPreparationSound: {fileID: 8300000, guid: 5970524570bc86e4298dd22c611f158e,
     type: 3}
   stompHitSound: {fileID: 8300000, guid: 303fa5d81a7508d4cb1d0b43eb1d737f, type: 3}
   maxSceneShake: .5
@@ -441,7 +441,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: stompPreparationSound
       value: 
-      objectReference: {fileID: 8300000, guid: c1dc6491f04e19d40acce2a770720143, type: 3}
+      objectReference: {fileID: 8300000, guid: 5970524570bc86e4298dd22c611f158e, type: 3}
     - target: {fileID: 0}
       propertyPath: stompHitSound
       value: 
