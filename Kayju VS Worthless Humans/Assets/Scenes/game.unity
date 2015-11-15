@@ -1419,6 +1419,10 @@ MonoBehaviour:
   - {fileID: 106264413}
   - {fileID: 683255633}
   - {fileID: 632296988}
+  switchs:
+  - {fileID: 1322187711}
+  - {fileID: 1770797966}
+  - {fileID: 1105941811}
   Display: {fileID: 1322187711}
   Gameover: {fileID: 1770797966}
 --- !u!114 &1098368929

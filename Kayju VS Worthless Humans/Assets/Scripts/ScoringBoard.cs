@@ -9,8 +9,7 @@ public class ScoringBoard : MonoBehaviour {
     int[] scoreI;
     public Text[] stext;
     public Text[] ftext;
-    public GameObject Display;
-    public GameObject Gameover;
+    public GameObject[] switchs;
 
     // Use this for initialization
     void Start() {
@@ -34,10 +33,14 @@ public class ScoringBoard : MonoBehaviour {
     public void removePlayer(int playerNumber) {
         Debug.Log("Player " + playerNumber + " is dead, adieu Youri");
         nb_players--;
-        if (nb_players <= 0) {
-            Display.SetActive(false);
-            Gameover.SetActive(true);
-        }
+        if (nb_players <= 0)
+            EndGame();
+    }
+
+    void EndGame()
+    {
+        foreach (GameObject elem in switchs)
+            elem.SetActive(!elem.activeSelf);
     }
 
     // Update is called once per frame
