@@ -16,4 +16,17 @@ public class PNJ : Human {
             else { GetComponent<Rigidbody2D>().velocity = pos; }
         }
     }
+
+    public override bool IsHuman() { return false; }
+    public override bool IsPNJ() { return true; }
+
+    protected override void onCollisionWithPlayer(Collision2D collider) {
+        if (master == null) {
+            Human collidedHuman = collider.gameObject.GetComponent<Human>();
+            if (collidedHuman.IsHuman()) {
+                collidedHuman.slave = this;
+                master = collidedHuman;
+            }
+        }
+    }
 }

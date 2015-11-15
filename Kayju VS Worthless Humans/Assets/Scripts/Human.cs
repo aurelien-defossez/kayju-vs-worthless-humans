@@ -15,6 +15,7 @@ public abstract class Human : MonoBehaviour {
     int layerStomp;
     int layerBile;
     int layerLaser;
+    int layerPlayer;
 
     GameObject ScoreBoard;
 
@@ -29,13 +30,16 @@ public abstract class Human : MonoBehaviour {
         layerStomp = LayerMask.NameToLayer("Stomp");
         layerBile = LayerMask.NameToLayer("Bile");
         layerLaser = LayerMask.NameToLayer("Laser");
-
+        layerPlayer = LayerMask.NameToLayer("Player");
         speed = initialSpeed;
         ScoreBoard = GameObject.Find("GameManager");
         Init();
     }
 
     protected abstract void Init();
+    public abstract bool IsHuman();
+    public abstract bool IsPNJ();
+
 
     void Update() {
         if (speed < initialSpeed) {
@@ -66,7 +70,6 @@ public abstract class Human : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.layer.Equals(layerStomp)) {
             Die_Human(1);
-
         }
         else if (collider.gameObject.layer.Equals(layerLaser)) {
             Die_Human(2);
@@ -75,6 +78,16 @@ public abstract class Human : MonoBehaviour {
             speed = initialSpeed / 3;
         }
     }
+
+
+    void OnCollisionEnter2D(Collision2D collider) {
+        if (collider.gameObject.layer.Equals(layerPlayer)) {
+            Debug.Log("player");
+            onCollisionWithPlayer(collider);
+        }
+    }
+
+    protected abstract void onCollisionWithPlayer(Collision2D collider);
 
     void OnTriggerStay2D(Collider2D collider) {
         if (collider.gameObject.layer.Equals(layerBile)) {

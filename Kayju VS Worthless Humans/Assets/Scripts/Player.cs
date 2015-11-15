@@ -6,7 +6,10 @@ public class Player : Human {
     public int player;
     string input_x = "Horizontal_J";
     string input_y = "Vertical_J";
-    // Use this for initialization
+
+    public override bool IsHuman() { return true; }
+    public override bool IsPNJ() { return false; }
+
     protected override void Init() {
         #region Kaiju_player
         if (KaijuDebug.instance.firstPlayerIsHuman) {
@@ -18,6 +21,10 @@ public class Player : Human {
             input_y += player;
         }
         #endregion
+    }
+
+    protected override void onCollisionWithPlayer(Collision2D collider) {
+
     }
 
     protected override void SetVelocity() {

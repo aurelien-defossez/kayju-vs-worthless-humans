@@ -1421,16 +1421,10 @@ Prefab:
     - target: {fileID: 11453514, guid: f185d879333567b45b0965b95cd3aa16, type: 2}
       propertyPath: slave
       value: 
-      objectReference: {fileID: 1589090857}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f185d879333567b45b0965b95cd3aa16, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1449153365 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11453514, guid: f185d879333567b45b0965b95cd3aa16,
-    type: 2}
-  m_PrefabInternal: {fileID: 1449153364}
-  m_Script: {fileID: 11500000, guid: 73b9532949c8add438da594e361b5b5c, type: 3}
 --- !u!1 &1461552844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,11 +1601,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 437198, guid: f185d879333567b45b0965b95cd3aa16, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 437198, guid: f185d879333567b45b0965b95cd3aa16, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 437198, guid: f185d879333567b45b0965b95cd3aa16, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1670,7 +1664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSpeed: 10
   scene: {fileID: 1611190516}
-  master: {fileID: 1449153365}
+  master: {fileID: 0}
   slave: {fileID: 0}
   BloodStain: {fileID: 463634, guid: b3836deeffc4878479921276fa7709e0, type: 2}
   Grill: {fileID: 418162, guid: 6acdaef55b7677b4faf727591e2e9f27, type: 2}
