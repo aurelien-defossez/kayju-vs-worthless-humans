@@ -10,6 +10,8 @@ public class ScoringBoard : MonoBehaviour {
     public Text[] stext;
     public Text[] ftext;
     public GameObject[] switchs;
+    public GameObject[] buttons;
+    bool gameover = false;
 
     // Use this for initialization
     void Start() {
@@ -41,10 +43,32 @@ public class ScoringBoard : MonoBehaviour {
     {
         foreach (GameObject elem in switchs)
             elem.SetActive(!elem.activeSelf);
+        gameover = true;
     }
 
     // Update is called once per frame
     void Update() {
-
+        if (gameover)
+        {
+            if (Input.GetAxis("Horizontal_Kaiju") < 0)
+            {
+                buttons[0].SetActive(false);
+                buttons[1].SetActive(true);
+                Debug.Log("Gameoverleft");
+            }
+            if (Input.GetAxis("Horizontal_Kaiju") > 0)
+            {
+                buttons[0].SetActive(true);
+                buttons[1].SetActive(false);
+                Debug.Log("Gameover right");
+            }
+            if (Input.GetButtonDown("Kaiju_Bile"))
+            {
+                if (buttons[0].activeSelf)
+                    Application.Quit();
+                if (buttons[1].activeSelf)
+                    Application.LoadLevel("game");
+            }
+        }
     }
 }
