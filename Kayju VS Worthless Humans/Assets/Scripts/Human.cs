@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Human : MonoBehaviour {
+public class Human : MonoBehaviour {
     public float initialSpeed;
     public Transform scene;
     public Human master;
@@ -9,6 +9,12 @@ public abstract class Human : MonoBehaviour {
 
     public Transform BloodStain;
     public Transform Grill;
+
+
+    public int player;
+    bool isPlayer;
+    string input_x = "Horizontal_J";
+    string input_y = "Vertical_J";
 
     Animator anim;
     Rigidbody2D body;
@@ -33,13 +39,42 @@ public abstract class Human : MonoBehaviour {
         layerPlayer = LayerMask.NameToLayer("Player");
         speed = initialSpeed;
         ScoreBoard = GameObject.Find("GameManager");
-        Init();
+        if (player > 0) {
+            #region Kaiju_player
+            if (KaijuDebug.instance.firstPlayerIsHuman) {
+                input_x = "Horizontal_Kaiju";
+                input_y = "Vertical_Kaiju";
+            }
+            else {
+                input_x += player;
+                input_y += player;
+            }
+            #endregion
+            isPlayer = true;
+        }
+        else {
+            isPlayer = false;
+        }
     }
 
-    protected abstract void Init();
-    public abstract bool IsHuman();
-    public abstract bool IsPNJ();
+    public bool IsPlayer() { return isPlayer; }
+    public bool IsPNJ() { return !isPlayer; }
 
+    // To pass the lead
+    public void SetPlayer(int player) {
+        this.player = player;
+        #region Kaiju_player
+        if (KaijuDebug.instance.firstPlayerIsHuman) {
+            input_x = "Horizontal_Kaiju";
+            input_y = "Vertical_Kaiju";
+        }
+        else {
+            input_x += player;
+            input_y += player;
+        }
+        #endregion
+        isPlayer = true;
+    }
 
     void Update() {
         if (speed < initialSpeed) {
@@ -50,7 +85,14 @@ public abstract class Human : MonoBehaviour {
         SetPosture();
     }
 
-    protected abstract void SetVelocity();
+    void SetVelocity() {
+        if (IsPlayer()) {
+            SetVelocityPlayer();
+        }
+        else if (IsPNJ()) {
+            SetVelocityPNJ();
+        }
+    }
 
     void SetPosture() {
         if (body.velocity.magnitude > 0) {
@@ -79,15 +121,19 @@ public abstract class Human : MonoBehaviour {
         }
     }
 
-
     void OnCollisionEnter2D(Collision2D collider) {
         if (collider.gameObject.layer.Equals(layerPlayer)) {
             Debug.Log("player");
-            onCollisionWithPlayer(collider);
+            if (IsPNJ()) {
+                if (master == null) {
+                    Human collidedHuman = collider.gameObject.GetComponent<Human>();
+                    if (collidedHuman.IsPlayer()) {
+                        master = collidedHuman.SetSlave(this);
+                    }
+                }
+            }
         }
     }
-
-    protected abstract void onCollisionWithPlayer(Collision2D collider);
 
     void OnTriggerStay2D(Collider2D collider) {
         if (collider.gameObject.layer.Equals(layerBile)) {
@@ -96,11 +142,14 @@ public abstract class Human : MonoBehaviour {
     }
 
     void Die_Human(int death) {
-        if (master != null) {
-            master.slave = null;
-        }
         if (slave != null) {
-            slave.master = null;
+            slave.master = master;
+        }
+        if (master != null) {
+            master.slave = slave;
+        }
+        if (IsPlayer()) {
+            slave.SetPlayer(player);
         }
 
         SpriteRenderer rend = GetComponent<SpriteRenderer>();
@@ -120,5 +169,37 @@ public abstract class Human : MonoBehaviour {
         ScoreBoard.GetComponent<ScoringBoard>().Score_up(0);
         // Death animation goes here, parameter defines which one is played.
         Destroy(gameObject);
+    }
+
+    public Human SetSlave(Human human) {
+        if (this.slave != null) {
+            return this.slave.SetSlave(human);
+        }
+        else {
+            this.slave = human;
+            return this;
+        }
+    }
+
+    void SetVelocityPlayer() {
+        Vector2 pos = new Vector2(Input.GetAxis(input_x), Input.GetAxis(input_y)) * speed;
+        angle = Vector2.Angle(Vector2.up, pos);
+
+        if (player >= 2 && player <= 4)
+            GetComponent<Rigidbody2D>().velocity = pos;
+    }
+
+    void SetVelocityPNJ() {
+        if (master != null) {
+            float deltaX = master.transform.position.x - this.transform.position.x;
+            float deltaY = master.transform.position.y - this.transform.position.y;
+
+            Vector2 pos = new Vector2(deltaX, deltaY) * speed;
+            angle = Vector2.Angle(Vector2.up, pos);
+            if (Mathf.Abs(deltaX) < 0.5 && Mathf.Abs(deltaY) < 0.5) {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            }
+            else { GetComponent<Rigidbody2D>().velocity = pos; }
+        }
     }
 }
