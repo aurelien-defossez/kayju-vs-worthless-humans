@@ -1144,8 +1144,8 @@ MonoBehaviour:
   stext:
   - {fileID: 38513681}
   - {fileID: 1461552846}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1821396555}
+  - {fileID: 553140941}
   ftext:
   - {fileID: 1073706799}
   - {fileID: 106264413}

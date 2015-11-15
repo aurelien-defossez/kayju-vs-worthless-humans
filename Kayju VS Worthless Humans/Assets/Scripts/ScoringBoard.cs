@@ -21,6 +21,8 @@ public class ScoringBoard : MonoBehaviour {
         scoreI[3] = 0;
         foreach (Text elem in stext)
             elem.text = "0";
+        foreach (Text elem in ftext)
+            elem.text = "0";
     }
 	
     public void Score_up(int target)
