@@ -74,8 +74,12 @@ public class GameManager : MonoBehaviour {
                 source = runSounds[2];
             }
 
-            currentRunSound = Utils.PlayPitchedClipAt(runSounds[0], gameObject, Random.Range(0.8f, 1.2f));
-            currentRunSound.volume = 0.2f;
+            //currentRunSound = Utils.PlayPitchedClipAt(runSounds[0], gameObject, Random.Range(0.8f, 1.2f));
+            currentRunSound = GetComponent<AudioSource>();
+            currentRunSound.clip = source;
+            currentRunSound.pitch = Random.Range(.8f, 1.2f);
+            currentRunSound.Play();
+            //currentRunSound.volume = 0.2f;
         }
 
 
