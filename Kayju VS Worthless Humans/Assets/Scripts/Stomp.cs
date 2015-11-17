@@ -9,8 +9,8 @@ public class Stomp : MonoBehaviour {
     public CircleCollider2D hitCollider;
     public CircleCollider2D blockCollider;
 	public Vector2 initialFistPosition;
-	public AudioClip stompPreparationSound;
-	public AudioClip stompHitSound;
+    //public AudioClip stompPreparationSound;
+    //public AudioClip stompHitSound;
 	public float maxSceneShake;
 
     private SpriteRenderer shadowSprite;
@@ -26,7 +26,8 @@ public class Stomp : MonoBehaviour {
 
 		timeline.Play();
 
-		Utils.PlayPitchedClipAt(stompPreparationSound, transform.position);
+        //Utils.PlayPitchedClipAt(stompPreparationSound, transform.position);
+        transform.FindChild("Anticipation").GetComponent<AudioSource>().Play();
 	}
 
 	[TimelineMethod]
@@ -51,7 +52,8 @@ public class Stomp : MonoBehaviour {
     public void Hit(TimelineCall options){
 		shadowSprite.enabled = false;
         hitCollider.enabled=true;
-		Utils.PlayPitchedClipAt(stompHitSound, transform.position);
+        //Utils.PlayPitchedClipAt(stompHitSound, transform.position);
+        transform.FindChild("Hit").GetComponent<AudioSource>().Play();
 		dust.SetActive(true);
 	}
 

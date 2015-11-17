@@ -57,7 +57,7 @@ AudioMixerController:
     - 69d8b4c249237134780926587bd38202
     - 755972d055c5cd740afbf3d9f75788df
     name: Amb
-  m_CurrentViewIndex: 5
+  m_CurrentViewIndex: 4
   m_TargetSnapshot: {fileID: 24500003}
 --- !u!243 &24300001
 AudioMixerGroupController:
@@ -410,4 +410,5 @@ AudioMixerSnapshotController:
   m_FloatValues:
     74a29a427bb09604ea8700c83b950467: -9.83328629
     ee99fc943c526b34db9a2efbc73cbdee: -8.36240387
+    124f34673b504744ab76bfeddd43526b: -12.4984779
   m_TransitionOverrides: {}
