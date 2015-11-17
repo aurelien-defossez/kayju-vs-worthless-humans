@@ -2872,8 +2872,8 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
-      value: .827274561
+    - time: .00714285718
+      value: .985169291
       inSlope: 0
       outSlope: -1.00200403
       tangentMode: 0

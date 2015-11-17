@@ -36,10 +36,12 @@ public class KaijuCursor : MonoBehaviour {
 	float fireTimer;
 	Laser laser;
 	Vector2 randomLaserVelocity;
+    float laserOriginalVolume;
 
     // Use this for initialization
     void Start() {
         body = GetComponent<Rigidbody2D>();
+        laserOriginalVolume = laserKilling.volume;
     }
 
     // Update is called once per frame
@@ -67,7 +69,7 @@ public class KaijuCursor : MonoBehaviour {
 				laser = (Laser)laserTransform.GetComponent<Laser>();
 				laser.scene = scene;
                 randomLaserVelocity = Quaternion.Euler(0, 0, Random.value * 360) * Vector2.up * laserRandomForce;
-                //laserKilling.volume = 0.4f;
+                laserKilling.volume = laserOriginalVolume;
                 laserKilling.Play();
             }
 
