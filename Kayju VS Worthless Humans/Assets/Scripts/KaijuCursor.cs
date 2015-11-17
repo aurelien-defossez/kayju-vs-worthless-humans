@@ -30,6 +30,7 @@ public class KaijuCursor : MonoBehaviour {
 	public float laserRandomRotation;
 
 	public float fireSpitInterval;
+    public FireManager fireManager;
 
 	bool spittingFire;
 	float fireTimer;
@@ -66,7 +67,7 @@ public class KaijuCursor : MonoBehaviour {
 				laser = (Laser)laserTransform.GetComponent<Laser>();
 				laser.scene = scene;
                 randomLaserVelocity = Quaternion.Euler(0, 0, Random.value * 360) * Vector2.up * laserRandomForce;
-				laserKilling.volume = 0.4f;
+                //laserKilling.volume = 0.4f;
                 laserKilling.Play();
             }
 
@@ -77,7 +78,7 @@ public class KaijuCursor : MonoBehaviour {
 				if (Input.GetButtonUp("Kaiju_Laser") || laserStamina.getValue() <= 0) {
                     laser.Kill();
 					randomLaserVelocity = Vector2.zero;
-					Utils.FadeAudio(laserKilling, 0, 0.25f);
+                    Utils.FadeAudio(laserKilling, 0, 0.25f);
 					laser = null;
                 } else {
 					randomLaserVelocity = randomLaserVelocity.Rotate(laserRandomRotation * Time.deltaTime);
@@ -110,6 +111,7 @@ public class KaijuCursor : MonoBehaviour {
 					Transform fireTransform = (Transform)Instantiate(firePrefab);
 					Fire fire = (Fire)fireTransform.GetComponent<Fire>();
 					fire.Init(scene, transform.position);
+                    fireManager.points.Add(fire.burningFire.transform);
 
 					fireStamina.use(fireStaminaUsage);
 					fireTimer += fireSpitInterval;

@@ -50,6 +50,7 @@ public class Fire : MonoBehaviour {
 
 	[TimelineMethod]
 	public void Kill(TimelineCall options) {
+        Debug.Log(GameObject.FindObjectOfType<FireManager>().points.Remove(this.burningFire.transform));
 		Destroy(gameObject);
 	}
 }
