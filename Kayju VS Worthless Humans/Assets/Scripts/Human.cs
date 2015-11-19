@@ -101,7 +101,6 @@ public class Human : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collider) {
         if (collider.gameObject.layer.Equals(layerPlayer)) {
-            Debug.Log("player");
             if (IsPNJ()) {
                 if (master == null) {
                     Human collidedHuman = collider.gameObject.GetComponent<Human>();
