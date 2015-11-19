@@ -20,7 +20,6 @@ public class FireManager : MonoBehaviour {
         if (points == null) points = new List<Transform>();
 
         if (points.Count > 0) {
-            Debug.Log(points.Count);
             Vector3 barycenter;
             barycenter.x = points.Sum(p => p != null ? p.position.x : 0) / points.Count;
             barycenter.y = points.Sum(p => p != null ? p.position.y : 0) / points.Count;
