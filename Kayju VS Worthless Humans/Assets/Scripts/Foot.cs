@@ -25,7 +25,9 @@ public class Foot : MonoBehaviour {
 
 	[TimelineMethod]
 	public void PlaySound(TimelineCall options) {
-		Utils.PlayPitchedClipAt(footSound, gameObject, Random.Range(0.8f, 1.2f));
+        //Utils.PlayPitchedClipAt(footSound, gameObject, Random.Range(0.8f, 1.2f));
+        GetComponent<AudioSource>().pitch = Random.Range(0.8f, 1.2f);
+        GetComponent<AudioSource>().Play();
 	}
 
 	[TimelineMethod]

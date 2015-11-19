@@ -98,6 +98,8 @@ public class Utils : MonoBehaviour {
     }
 
     public static AudioSource PlayPitchedClipAt(AudioClip clip, GameObject gameObject, float pitch = 0.0f) {
+        Debug.Log("Trace");
+
         if (pitch == 0.0f) {
             pitch = UnityEngine.Random.Range(0.95f, 1.15f);
         }
@@ -113,6 +115,8 @@ public class Utils : MonoBehaviour {
     }
 
     public static AudioSource PlayPitchedClipAt(AudioClip clip, Vector3 position, float pitch = 0.0f) {
+        Debug.Log("Trace");
+
         GameObject gameObject = new GameObject("TempAudio");
         gameObject.transform.position = position;
 
