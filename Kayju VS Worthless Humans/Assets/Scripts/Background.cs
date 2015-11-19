@@ -16,6 +16,6 @@ public class Background : MonoBehaviour {
     }
 
     void OnBecameInvisible() {
-        gameObject.transform.position = new Vector3(0, (height - (worldScreenHeight / 2)) + height / 2, 10);
+        gameObject.transform.position = gameObject.transform.position.Y(gameObject.transform.position.y + 2 * height);
     }
 }
