@@ -35,8 +35,8 @@ public class ScoringBoard : MonoBehaviour {
     public void removePlayer(int playerNumber) {
         Debug.Log("Player " + playerNumber + " is dead, adieu Youri");
         nb_players--;
-        if (nb_players <= 0)
-            EndGame();
+        // if (nb_players <= 0)
+        //     EndGame();
     }
 
     void EndGame()
@@ -47,28 +47,28 @@ public class ScoringBoard : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
-        if (gameover)
-        {
-            if (Input.GetAxis("Horizontal_Kaiju") < 0)
-            {
-                buttons[0].SetActive(false);
-                buttons[1].SetActive(true);
-                Debug.Log("Gameoverleft");
-            }
-            if (Input.GetAxis("Horizontal_Kaiju") > 0)
-            {
-                buttons[0].SetActive(true);
-                buttons[1].SetActive(false);
-                Debug.Log("Gameover right");
-            }
-            if (Input.GetButtonDown("Kaiju_Bile"))
-            {
-                if (buttons[0].activeSelf)
-                    Application.Quit();
-                if (buttons[1].activeSelf)
-                    Application.LoadLevel("game");
-            }
-        }
-    }
+    // void Update() {
+    //     if (gameover)
+    //     {
+    //         if (Input.GetAxis("Horizontal_Kaiju") < 0)
+    //         {
+    //             buttons[0].SetActive(false);
+    //             buttons[1].SetActive(true);
+    //             Debug.Log("Gameoverleft");
+    //         }
+    //         if (Input.GetAxis("Horizontal_Kaiju") > 0)
+    //         {
+    //             buttons[0].SetActive(true);
+    //             buttons[1].SetActive(false);
+    //             Debug.Log("Gameover right");
+    //         }
+    //         if (Input.GetButtonDown("Kaiju_Bile"))
+    //         {
+    //             if (buttons[0].activeSelf)
+    //                 Application.Quit();
+    //             if (buttons[1].activeSelf)
+    //                 Application.LoadLevel("game");
+    //         }
+    //     }
+    // }
 }
