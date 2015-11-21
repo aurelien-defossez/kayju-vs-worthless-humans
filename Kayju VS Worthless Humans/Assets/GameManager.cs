@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
     public Human humanPrefab;
+    public Obstacle obstaclePrefab;
     public Transform scene;
     public int maxNbPlayers;
     public int firstPlayerIndex;
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        timer = Random.Range(1, 3);
+        timer = Random.Range(3, 5);
         players = new Human[maxNbPlayers];
         worldScreenHeight = (float)(Camera.main.orthographicSize * 2.0);
         worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
@@ -43,12 +44,12 @@ public class GameManager : MonoBehaviour {
 
         timer -= Time.deltaTime;
         if (timer <= 0) {
-            Human pnj = Instantiate(humanPrefab);
+            Obstacle obstacle = Instantiate(obstaclePrefab);
 
-            pnj.transform.position = new Vector3(Random.Range(-worldScreenWidth / 2, worldScreenWidth / 2), worldScreenHeight / 2, 0);
-            pnj.transform.SetParent(scene);
+            obstacle.transform.position = new Vector3(Random.Range(-worldScreenWidth / 2, worldScreenWidth / 2), (worldScreenHeight / 2) + 1, 0);
+            obstacle.transform.SetParent(scene);
 
-            timer = Random.Range(1, 3);
+            timer = Random.Range(3, 5);
         }
 
 
