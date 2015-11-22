@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 478378}
   - 212: {fileID: 21238252}
+  - 114: {fileID: 11406108}
   m_Layer: 15
   m_Name: Sprite
   m_TagString: Untagged
@@ -27,7 +28,6 @@ GameObject:
   - 58: {fileID: 5862754}
   - 114: {fileID: 11434526}
   - 114: {fileID: 11455652}
-  - 114: {fileID: 11452560}
   m_Layer: 15
   m_Name: Obstacle
   m_TagString: Untagged
@@ -73,6 +73,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .699999988
+--- !u!114 &11406108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff34aa63fb0e513438aef16ba627e977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: 1
 --- !u!114 &11434526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,18 +105,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1e58846e31bf3c342ac4cddb30056474, type: 3}
   spriteRender: {fileID: 21238252}
   humanPrefab: {fileID: 11420000, guid: 26a35ef9536bbe343b2c04f66c05f202, type: 2}
---- !u!114 &11452560
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff34aa63fb0e513438aef16ba627e977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: 0
 --- !u!114 &11455652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -181,6 +181,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: parent
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
