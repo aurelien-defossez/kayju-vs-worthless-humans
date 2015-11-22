@@ -73,8 +73,7 @@ public class Stomp : MonoBehaviour {
 	}
 
 	[TimelineMethod]
-    public void Shutdown(TimelineCall options)
-    {
-        Destroy(gameObject, stompHitSource.clip.length - stompHitSource.time);
+    public void Shutdown(TimelineCall options) {
+        Destroy(gameObject);
     }
 }
