@@ -12,7 +12,7 @@ public class BackgroundManager : MonoBehaviour {
     void Start() {
         float worldScreenHeight = (float)(Camera.main.orthographicSize * 2.0);
         background = (Transform)Instantiate(backgroundPrefab);
-        background.position = new Vector3(0, 0, 10);
+        background.position = new Vector3(0, 0, 0);
         background.parent = scene;
         background2 = (Transform)Instantiate(backgroundPrefab);
         Sprite sp = background2.GetComponent<SpriteRenderer>().sprite;

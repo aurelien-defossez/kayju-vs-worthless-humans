@@ -117,7 +117,6 @@ public class KaijuCursor : MonoBehaviour {
 
 					fireStamina.use(fireStaminaUsage);
 					fireTimer += fireSpitInterval;
-					Debug.Log(" Fire! " + fireStamina.getValue());
 				}
 
 				fireTimer -= Time.deltaTime;

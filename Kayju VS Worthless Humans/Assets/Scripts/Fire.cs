@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
 public class Fire : MonoBehaviour {
-	public Range screenYBounds;
 	public Vector3 spitSpawn;
 	public Timeline timeline;
 	public GameObject spitFire;
@@ -24,11 +23,6 @@ public class Fire : MonoBehaviour {
 		burningFire.SetActive(false);
 
 		timeline.Play();
-	}
-
-	public void Update() {
-		burningFire.transform.position = burningFire.transform.position.Z(
-			Mathf.InverseLerp(screenYBounds.from, screenYBounds.to, burningFire.transform.position.y));
 	}
 
 	[TimelineMethod]

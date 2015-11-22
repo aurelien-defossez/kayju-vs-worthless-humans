@@ -28,7 +28,7 @@ public class Human : MonoBehaviour {
 
     // Use this for initialization
      void Start() {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         body = GetComponent<Rigidbody2D>();
         layerStomp = LayerMask.NameToLayer("Stomp");
         layerBile = LayerMask.NameToLayer("Bile");
@@ -136,7 +136,7 @@ public class Human : MonoBehaviour {
         }
 
 
-        SpriteRenderer rend = GetComponent<SpriteRenderer>();
+        SpriteRenderer rend = GetComponentInChildren<SpriteRenderer>();
 
         Transform corpse;
         rend.enabled = false;
