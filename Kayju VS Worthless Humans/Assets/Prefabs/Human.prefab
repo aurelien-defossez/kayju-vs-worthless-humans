@@ -29,6 +29,7 @@ GameObject:
   - 58: {fileID: 5820240}
   - 114: {fileID: 11420000}
   - 114: {fileID: 11471288}
+  - 114: {fileID: 11469470}
   m_Layer: 9
   m_Name: Human
   m_TagString: Untagged
@@ -127,6 +128,18 @@ MonoBehaviour:
   isPlayer: 0
   input_x: 
   input_y: 
+--- !u!114 &11469470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff34aa63fb0e513438aef16ba627e977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: 0
 --- !u!114 &11471288
 MonoBehaviour:
   m_ObjectHideFlags: 1

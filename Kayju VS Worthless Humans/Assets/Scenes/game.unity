@@ -1673,14 +1673,22 @@ MonoBehaviour:
   scene: {fileID: 1611190516}
   maxNbPlayers: 3
   firstPlayerIndex: 2
-  spawnRange:
-    from: -6
-    to: 6
+  playerSpawnRange:
+    from: -.400000006
+    to: .400000006
+  playerSpawnY: .5
+  obstacleSpawnRange:
+    from: -.550000012
+    to: .550000012
+  obstacleSpawnY: 1.10000002
   runSounds:
   - {fileID: 8300000, guid: 5041149bff830e549ac365426b2abd6c, type: 3}
   - {fileID: 8300000, guid: c47df1582c112ad4a8142805eb827192, type: 3}
   - {fileID: 8300000, guid: 1118f15a2375ab745b787e25897a0468, type: 3}
   runSoundLimits: 0a00000014000000
+  ambientSoundInterval:
+    from: 3
+    to: 5
 --- !u!82 &1098368930
 AudioSource:
   m_ObjectHideFlags: 0

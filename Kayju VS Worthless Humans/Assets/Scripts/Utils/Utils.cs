@@ -145,4 +145,11 @@ public class Utils : MonoBehaviour {
 	public static AudioSource PlayPitchedClip(AudioClip clip) {
         return PlayPitchedClipAt(clip, Vector3.zero);
     }
+
+    public static Vector2 GetScreenPosition(float x, float y) {
+        float worldScreenHeight = (float)(Camera.main.orthographicSize * 2.0);
+        float worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
+
+        return new Vector2(worldScreenWidth * x / 2f, worldScreenHeight * y / 2f);
+    }
 }

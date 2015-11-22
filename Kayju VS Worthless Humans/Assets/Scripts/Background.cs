@@ -7,9 +7,9 @@ public class Background : MonoBehaviour {
     float height;
 
     void Start() {
+        Sprite sp = GetComponent<SpriteRenderer>().sprite;
         worldScreenHeight = (float)(Camera.main.orthographicSize * 2.0);
         worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
-        Sprite sp = GetComponent<SpriteRenderer>().sprite;
         float width = sp.texture.width / sp.pixelsPerUnit;
         height = sp.texture.height / sp.pixelsPerUnit;
         gameObject.transform.localScale = new Vector3(worldScreenWidth / width, 1, 1);

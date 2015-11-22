@@ -7,24 +7,22 @@ public class GameManager : MonoBehaviour {
     public Transform scene;
     public int maxNbPlayers;
     public int firstPlayerIndex;
-    public Range spawnRange;
-    public AudioClip[] runSounds;
+	public Range playerSpawnRange;
+	public float playerSpawnY;
+	public Range obstacleSpawnRange;
+	public float obstacleSpawnY;
+	public AudioClip[] runSounds;
     public int[] runSoundLimits;
+	public Range ambientSoundInterval;
 
     Human[] players;
     AudioSource currentRunSound;
-    float timer;
-    float worldScreenHeight;
-    float worldScreenWidth;
+    float ambientSoundTimer;
 
     // Use this for initialization
     void Start() {
-        timer = Random.Range(3, 5);
+		ambientSoundTimer = ambientSoundInterval.Rand();
         players = new Human[maxNbPlayers];
-        worldScreenHeight = (float)(Camera.main.orthographicSize * 2.0);
-        worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
-        worldScreenHeight *= 0.9f;
-        worldScreenWidth *= 0.72f;
     }
 
     // Update is called once per frame
@@ -35,23 +33,21 @@ public class GameManager : MonoBehaviour {
             if (players[i] == null && Input.GetButtonDown("Action_J" + index)) {
                 Debug.Log("Player " + index + " connected.");
                 Human player = Instantiate(humanPrefab);
-                player.transform.position = new Vector3(spawnRange.Rand(), 0, 0);
+                player.transform.position = Utils.GetScreenPosition(playerSpawnRange.Rand(), playerSpawnY);
                 player.transform.SetParent(scene);
                 player.SetPlayer(index);
                 players[i] = player;
             }
         }
 
-        timer -= Time.deltaTime;
-        if (timer <= 0) {
+        ambientSoundTimer -= Time.deltaTime;
+        if (ambientSoundTimer <= 0) {
             Obstacle obstacle = Instantiate(obstaclePrefab);
-
-            obstacle.transform.position = new Vector3(Random.Range(-worldScreenWidth / 2, worldScreenWidth / 2), (worldScreenHeight / 2) + 1, 0);
+			obstacle.transform.position = Utils.GetScreenPosition(obstacleSpawnRange.Rand(), obstacleSpawnY);
             obstacle.transform.SetParent(scene);
 
-            timer = Random.Range(3, 5);
-        }
-
+            ambientSoundTimer = ambientSoundInterval.Rand();
+		}
 
         // Play sound
         if (currentRunSound == null) {
@@ -80,7 +76,5 @@ public class GameManager : MonoBehaviour {
             currentRunSound.pitch = Random.Range(.8f, 1.2f);
             currentRunSound.Play();
         }
-
-
     }
 }
