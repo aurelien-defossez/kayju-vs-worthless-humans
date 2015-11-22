@@ -21,7 +21,7 @@ public class Obstacle : MonoBehaviour {
                 Human pnj = Instantiate(humanPrefab);
                 int angle = Random.Range(0, 360);
                 pnj.transform.position = new Vector3(this.transform.position.x + Mathf.Cos(angle) * 1, this.transform.position.y + Mathf.Sin(angle), 0);
-
+                Utils.SetLayerToChildren(pnj.gameObject, LayerMask.NameToLayer("SavablePlayer"));
                 pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
                 pnj.transform.SetParent(this.transform.parent);
 

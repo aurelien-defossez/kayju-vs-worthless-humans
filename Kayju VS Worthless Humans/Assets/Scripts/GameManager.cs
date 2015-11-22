@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
         players = new Human[maxNbPlayers];
 
 		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Boundaries"), LayerMask.NameToLayer("Cursor"));
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"));
     }
 
     // Update is called once per frame

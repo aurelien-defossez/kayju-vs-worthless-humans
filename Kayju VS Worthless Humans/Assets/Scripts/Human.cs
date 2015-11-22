@@ -107,6 +107,7 @@ public class Human : MonoBehaviour {
                     if (collidedHuman.IsPlayer()) {
                         master = collidedHuman.SetSlave(this);
                         ScoreBoard.GetComponent<ScoringBoard>().Score_up(collidedHuman.player);
+                        Utils.SetLayerToChildren(this.gameObject, LayerMask.NameToLayer("Player"));
                     }
                 }
             }
