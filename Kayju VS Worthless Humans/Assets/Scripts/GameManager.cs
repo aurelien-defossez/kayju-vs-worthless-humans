@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour {
     void Start() {
 		ambientSoundTimer = ambientSoundInterval.Rand();
         players = new Human[maxNbPlayers];
+
+		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Boundaries"), LayerMask.NameToLayer("Cursor"));
     }
 
     // Update is called once per frame
@@ -46,7 +48,7 @@ public class GameManager : MonoBehaviour {
 			obstacle.transform.position = Utils.GetScreenPosition(obstacleSpawnRange.Rand(), obstacleSpawnY);
             obstacle.transform.SetParent(scene);
 
-            ambientSoundTimer = ambientSoundInterval.Rand();
+            ambientSoundTimer += ambientSoundInterval.Rand();
 		}
 
         // Play sound
