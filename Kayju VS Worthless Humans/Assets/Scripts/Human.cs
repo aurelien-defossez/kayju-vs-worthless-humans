@@ -10,7 +10,7 @@ public class Human : MonoBehaviour {
     public Transform Grill;
 
     public int player;
-    public bool isPlayer =false;
+    public bool isPlayer = false;
     public string input_x;
     public string input_y;
 
@@ -27,7 +27,7 @@ public class Human : MonoBehaviour {
     protected float angle;
 
     // Use this for initialization
-     void Start() {
+    void Start() {
         anim = GetComponentInChildren<Animator>();
         body = GetComponent<Rigidbody2D>();
         layerStomp = LayerMask.NameToLayer("Stomp");
@@ -59,9 +59,9 @@ public class Human : MonoBehaviour {
         SetPosture();
     }
 
-	public int GetLength() {
-		return slave == null ? 1 : slave.GetLength() + 1;
-	}
+    public int GetLength() {
+        return slave == null ? 1 : slave.GetLength() + 1;
+    }
 
     void SetVelocity() {
         if (IsPlayer()) {
@@ -169,9 +169,7 @@ public class Human : MonoBehaviour {
     void SetVelocityPlayer() {
         Vector2 pos = new Vector2(Input.GetAxis(input_x), Input.GetAxis(input_y)) * speed;
         angle = Vector2.Angle(Vector2.up, pos);
-
-        if (player >= 2 && player <= 4)
-            GetComponent<Rigidbody2D>().velocity = pos;
+        GetComponent<Rigidbody2D>().velocity = pos;
     }
 
     void SetVelocityPNJ() {
