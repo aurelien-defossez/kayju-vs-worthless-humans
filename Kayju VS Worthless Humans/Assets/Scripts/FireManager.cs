@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class FireManager : MonoBehaviour {
-
     public AudioSource fireBurnSource;
     [Range(0.0f , 1.0f)]
     public float volumeDeBase;
     [Range(0.0f, 1.0f)]
     public float volumeUnitaire;
-    [HideInInspector]
-    public List<Fire> fires;
+
+	private List<Fire> fires;
 
     void Start() {
 		fires = new List<Fire>();

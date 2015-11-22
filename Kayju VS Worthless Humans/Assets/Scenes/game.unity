@@ -939,7 +939,6 @@ MonoBehaviour:
   fireBurnSource: {fileID: 635599987}
   volumeDeBase: .444999993
   volumeUnitaire: .0920000002
-  points: []
 --- !u!82 &635599987
 AudioSource:
   m_ObjectHideFlags: 0
