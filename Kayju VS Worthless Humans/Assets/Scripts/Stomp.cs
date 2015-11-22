@@ -22,7 +22,7 @@ public class Stomp : MonoBehaviour {
 		dust.SetActive(false);
 		shadowSprite = shadow.GetComponentInChildren<SpriteRenderer>();
 		initialFistPosition = fist.position;
-		transform.position = transform.position.Z(0);
+		transform.position = transform.position;
 
 		timeline.Play();
 

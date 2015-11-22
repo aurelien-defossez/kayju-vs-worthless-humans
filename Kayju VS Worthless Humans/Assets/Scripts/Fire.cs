@@ -12,7 +12,7 @@ public class Fire : MonoBehaviour {
 
 	public void Init(Transform scene, Vector3 target) {
 		this.scene = scene;
-		this.target = target.Z(0);
+		this.target = target;
 
 		float angle = Vector2.Angle(spitSpawn - this.target, spitSpawn);
 		if (target.x > 0) {

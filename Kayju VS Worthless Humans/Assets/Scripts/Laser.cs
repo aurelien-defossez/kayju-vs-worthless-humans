@@ -10,7 +10,7 @@ public class Laser : MonoBehaviour {
 		transform.position = new Vector3(position.x, position.y, 0);
 
 		Transform trace = (Transform)Instantiate(laserTracePrefab);
-		trace.position = transform.position;
+        trace.position = transform.position;
 		trace.rotation = Quaternion.Euler(0, 0, Random.value * 360);
 		trace.parent = scene;
 

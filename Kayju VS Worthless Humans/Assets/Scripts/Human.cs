@@ -147,7 +147,7 @@ public class Human : MonoBehaviour {
             corpse = (Transform)Instantiate(Grill);
         }
         corpse.SetParent(this.transform.parent);
-        corpse.position = this.transform.position.Z(8);
+        corpse.position = this.transform.position;
 
 
         ScoreBoard.GetComponent<ScoringBoard>().Score_up(0);
