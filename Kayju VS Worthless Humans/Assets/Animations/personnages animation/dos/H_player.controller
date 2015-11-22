@@ -83,7 +83,7 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Dos
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 3
     m_ConditionEvent: Team
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -137,7 +137,7 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: "Cot\xE9"
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 3
     m_ConditionEvent: Team
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -191,7 +191,7 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Face
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 3
     m_ConditionEvent: Team
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -218,7 +218,7 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: "Cot\xE9"
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 3
     m_ConditionEvent: Team
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -245,7 +245,7 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Face
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 3
     m_ConditionEvent: Team
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -353,7 +353,7 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Dos
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 3
     m_ConditionEvent: Team
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -572,83 +572,47 @@ AnimatorStateMachine:
     m_Position: {x: 192, y: -900, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110295802}
-    m_Position: {x: 456, y: -768, z: 0}
+    m_Position: {x: 444, y: -756, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions:
-  - {fileID: 110992830}
-  - {fileID: 110929292}
-  - {fileID: 110988898}
-  - {fileID: 110985050}
-  - {fileID: 110987996}
+  - {fileID: 110940556}
+  - {fileID: 110994836}
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -24, y: -600, z: 0}
-  m_EntryPosition: {x: 240, y: -648, z: 0}
+  m_EntryPosition: {x: 252, y: -588, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 110281706}
---- !u!1109 &110929292
+--- !u!1109 &110940556
 AnimatorTransition:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions: []
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 110202256}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 1
---- !u!1109 &110985050
-AnimatorTransition:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_Conditions: []
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 110295802}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 1
---- !u!1109 &110987996
-AnimatorTransition:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_Conditions: []
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 110292118}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 1
---- !u!1109 &110988898
-AnimatorTransition:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: Team
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110251170}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 1
---- !u!1109 &110992830
+--- !u!1109 &110994836
 AnimatorTransition:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 3
+    m_ConditionEvent: Team
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 110222578}
+  m_DstState: {fileID: 110281706}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
