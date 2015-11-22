@@ -25,7 +25,7 @@ public class Obstacle : MonoBehaviour {
                 pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
                 pnj.transform.SetParent(this.transform.parent);
 
-                timer = Random.Range(1, 3);
+                timer += Random.Range(1, 3);
             }
         }
     }

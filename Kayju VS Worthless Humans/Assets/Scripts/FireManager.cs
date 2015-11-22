@@ -10,9 +10,11 @@ public class FireManager : MonoBehaviour {
     public float volumeUnitaire;
 
 	private List<Fire> fires;
+	private bool fireStarted;
 
     void Start() {
 		fires = new List<Fire>();
+		fireStarted = false;
     }
 
 	public void AddFire(Fire fire) {
@@ -24,7 +26,6 @@ public class FireManager : MonoBehaviour {
 	}
 
 	void Update () {
-		Debug.Log("points " + fires.Count());
         if (fires.Count > 0) {
             Vector3 barycenter = Vector3.zero;
 			foreach (Fire fire in fires) {
@@ -37,9 +38,11 @@ public class FireManager : MonoBehaviour {
             fireBurnSource.volume = volumeDeBase + fires.Count * volumeUnitaire;
 
 			if (!fireBurnSource.isPlaying) {
-				fireBurnSource.Play();
+				fireStarted = true;
+                fireBurnSource.Play();
 			}
-        } else {
+        } else if (fireStarted) {
+			fireStarted = false;
             fireBurnSource.Stop();
             Utils.FadeAudio(fireBurnSource, 0, 0.25f);
         }

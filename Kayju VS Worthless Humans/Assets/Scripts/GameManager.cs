@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     void Start() {
 		ambientSoundTimer = ambientSoundInterval.Rand();
         players = new Human[maxNbPlayers];
-
+		
 		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Boundaries"), LayerMask.NameToLayer("Cursor"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"));
     }
