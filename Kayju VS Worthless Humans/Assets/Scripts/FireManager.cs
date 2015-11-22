@@ -10,30 +10,39 @@ public class FireManager : MonoBehaviour {
     [Range(0.0f, 1.0f)]
     public float volumeUnitaire;
     [HideInInspector]
-    public List<Transform> points;
+    public List<Fire> fires;
 
     void Start() {
-         points = new List<Transform>();
+		fires = new List<Fire>();
     }
 
-	void Update () {
-        if (points == null) points = new List<Transform>();
+	public void AddFire(Fire fire) {
+		fires.Add(fire);
+    }
+	
+	public void RemoveFire(Fire fire) {
+		fires.Remove(fire);
+	}
 
-        if (points.Count > 0) {
-            Vector3 barycenter;
-            barycenter.x = points.Sum(p => p != null ? p.position.x : 0) / points.Count;
-            barycenter.y = points.Sum(p => p != null ? p.position.y : 0) / points.Count;
-            barycenter.z = points.Sum(p => p != null ? p.position.z : 0) / points.Count;
+	void Update () {
+		Debug.Log("points " + fires.Count());
+        if (fires.Count > 0) {
+            Vector3 barycenter = Vector3.zero;
+			foreach (Fire fire in fires) {
+				barycenter += fire.transform.position;
+			}
+
+			barycenter = new Vector3(barycenter.x / fires.Count, barycenter.y / fires.Count, 0);
 
             fireBurnSource.transform.position = barycenter;
-            fireBurnSource.volume = volumeDeBase + points.Count * volumeUnitaire;
+            fireBurnSource.volume = volumeDeBase + fires.Count * volumeUnitaire;
 
-            if (!fireBurnSource.isPlaying) fireBurnSource.Play();
+			if (!fireBurnSource.isPlaying) {
+				fireBurnSource.Play();
+			}
         } else {
             fireBurnSource.Stop();
             Utils.FadeAudio(fireBurnSource, 0, 0.25f);
         }
 	}
-
-   
 }

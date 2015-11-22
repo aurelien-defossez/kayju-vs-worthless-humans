@@ -112,8 +112,7 @@ public class KaijuCursor : MonoBehaviour {
 				if (fireTimer <= 0) {
 					Transform fireTransform = (Transform)Instantiate(firePrefab);
 					Fire fire = (Fire)fireTransform.GetComponent<Fire>();
-					fire.Init(scene, transform.position);
-                    fireManager.points.Add(fire.burningFire.transform);
+					fire.Init(scene, fireManager, transform.position);
 
 					fireStamina.use(fireStaminaUsage);
 					fireTimer += fireSpitInterval;

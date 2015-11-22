@@ -7,11 +7,15 @@ public class Fire : MonoBehaviour {
 	public GameObject burningFire;
 
 	Transform scene;
+	FireManager fireManager;
 	Vector3 target;
 
-	public void Init(Transform scene, Vector3 target) {
+	public void Init(Transform scene, FireManager fireManager, Vector3 target) {
 		this.scene = scene;
 		this.target = target;
+		this.fireManager = fireManager;
+
+		fireManager.AddFire(this);
 
 		float angle = Vector2.Angle(spitSpawn - this.target, spitSpawn);
 		if (target.x > 0) {
@@ -44,6 +48,7 @@ public class Fire : MonoBehaviour {
 
 	[TimelineMethod]
 	public void Kill(TimelineCall options) {
+		fireManager.RemoveFire(this);
 		Destroy(gameObject);
 	}
 }
