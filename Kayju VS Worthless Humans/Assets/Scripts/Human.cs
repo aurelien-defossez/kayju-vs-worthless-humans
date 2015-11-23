@@ -25,9 +25,8 @@ public class Human : MonoBehaviour {
 
     protected float speed;
     protected float angle;
-
-    // Use this for initialization
-    void Start() {
+    
+    void Awake() {
         anim = GetComponentInChildren<Animator>();
         body = GetComponent<Rigidbody2D>();
         layerStomp = LayerMask.NameToLayer("Stomp");
@@ -43,11 +42,17 @@ public class Human : MonoBehaviour {
     public bool IsPNJ() { return !isPlayer; }
 
     // To pass the lead
-    public void SetPlayer(int player) {
-        this.player = player;
-        input_x = "Horizontal_J" + player;
-        input_y = "Vertical_J" + player;
+    public void SetPlayer(int team) {
+        SetTeam(team);
+        input_x = "Horizontal_J" + team;
+        input_y = "Vertical_J" + team;
         isPlayer = true;
+    }
+
+    public void SetTeam(int team) {
+        this.player = team;
+        anim.SetInteger("Team",team);
+        anim.SetTrigger("TeamSwitch");
     }
 
     void Update() {
@@ -76,11 +81,11 @@ public class Human : MonoBehaviour {
         if (body.velocity.magnitude > 0) {
             angle = Vector2.Angle(Vector2.up, body.velocity);
             if (angle <= 45.0)
-                anim.SetTrigger(Animator.StringToHash("Dos"));
+                anim.SetTrigger("Back");
             else if (angle >= 135.0)
-                anim.SetTrigger(Animator.StringToHash("Face"));
+                anim.SetTrigger("Front");
             else {
-                anim.SetTrigger("Coté");
+                anim.SetTrigger("Side");
 
                 if (body.velocity.x > 0 && this.transform.localScale.x < 0 || body.velocity.x < 0 && this.transform.localScale.x > 0)
                     this.transform.localScale = Vector3.Scale(this.transform.localScale, new Vector3(-1, 1, 1));
@@ -109,6 +114,7 @@ public class Human : MonoBehaviour {
                         master = collidedHuman.SetSlave(this);
                         ScoreBoard.GetComponent<ScoringBoard>().Score_up(collidedHuman.player);
                         Utils.SetLayerToChildren(this.gameObject, LayerMask.NameToLayer("Player"));
+                        SetTeam(master.player);
                     }
                 }
             }
@@ -177,7 +183,7 @@ public class Human : MonoBehaviour {
             float deltaX = master.transform.position.x - this.transform.position.x;
             float deltaY = master.transform.position.y - this.transform.position.y;
 
-            Vector2 pos = new Vector2(deltaX, deltaY) * speed;            
+            Vector2 pos = new Vector2(deltaX, deltaY) * speed;
             if (Mathf.Abs(deltaX) < 0.5 && Mathf.Abs(deltaY) < 0.5) {
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             }
