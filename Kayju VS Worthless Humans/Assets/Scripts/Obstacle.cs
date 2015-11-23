@@ -5,6 +5,7 @@ public class Obstacle : MonoBehaviour {
     public Sprite[] sprites;
     public SpriteRenderer spriteRender;
     public Transform humanPrefab;
+
     float timer;
     float worldScreenHeight;
 
