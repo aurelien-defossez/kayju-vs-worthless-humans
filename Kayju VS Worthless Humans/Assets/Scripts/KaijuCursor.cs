@@ -7,6 +7,7 @@ public class KaijuCursor : MonoBehaviour {
     public float laserSpeedModifier;
 
     public Transform scene;
+	public GameObject pauseMenu;
 
     public Transform stompPrefab;
     public Transform bilePrefab;
@@ -46,7 +47,12 @@ public class KaijuCursor : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (!KaijuDebug.instance.firstPlayerIsHuman) {
+        if (Time.timeScale > 0 && !KaijuDebug.instance.firstPlayerIsHuman) {
+			// STOP THIS SHIT!
+			if (Input.GetButtonDown("Kaiju_Pause")) {
+				pauseMenu.SetActive(true);
+			}
+
             // BOOM
             if (Input.GetButtonDown("Kaiju_Stomp")) {
                 if (stompStamina.getValue() >= 1f) {

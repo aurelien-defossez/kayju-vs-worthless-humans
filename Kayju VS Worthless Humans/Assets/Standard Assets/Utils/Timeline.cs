@@ -144,7 +144,7 @@ public class Timeline : MonoBehaviour {
         if (isPlaying) {
             var dt = (unscaledTime) ? Time.unscaledDeltaTime : Time.deltaTime;
 
-            if (dt < maxDeltaTime) {
+            if (dt > 0 && dt < maxDeltaTime) {
                 if (delay > 0) {
                     delay -= dt;
                 } else {
