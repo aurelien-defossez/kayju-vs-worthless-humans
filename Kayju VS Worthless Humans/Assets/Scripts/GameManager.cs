@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         // Connect players
-        for (int i = 2; i < 6; i++) {
+        for (int i = 2; i < 8; i++) {
             if (Input.GetButtonDown("Action_J" + i)) {
                 if (!joystickPlayerMapping.ContainsKey(i)) {
                     int playerNumber = players.Count;
