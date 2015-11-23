@@ -74,6 +74,7 @@ public class Human : MonoBehaviour {
 
     void SetPosture() {
         if (body.velocity.magnitude > 0) {
+            angle = Vector2.Angle(Vector2.up, body.velocity);
             if (angle <= 45.0)
                 anim.SetTrigger(Animator.StringToHash("Dos"));
             else if (angle >= 135.0)
@@ -168,7 +169,6 @@ public class Human : MonoBehaviour {
 
     void SetVelocityPlayer() {
         Vector2 pos = new Vector2(Input.GetAxis(input_x), Input.GetAxis(input_y)) * speed;
-        angle = Vector2.Angle(Vector2.up, pos);
         GetComponent<Rigidbody2D>().velocity = pos;
     }
 
@@ -177,8 +177,7 @@ public class Human : MonoBehaviour {
             float deltaX = master.transform.position.x - this.transform.position.x;
             float deltaY = master.transform.position.y - this.transform.position.y;
 
-            Vector2 pos = new Vector2(deltaX, deltaY) * speed;
-            angle = Vector2.Angle(Vector2.up, pos);
+            Vector2 pos = new Vector2(deltaX, deltaY) * speed;            
             if (Mathf.Abs(deltaX) < 0.5 && Mathf.Abs(deltaY) < 0.5) {
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             }
