@@ -13,10 +13,6 @@ public class Button : MonoBehaviour {
 	private bool active;
 	private bool isNeutral;
 
-	public void Awake() {
-		Deactivate();
-	}
-
 	public void Activate() {
 		text.color = activeColor;
 		activeSprite.enabled = true;

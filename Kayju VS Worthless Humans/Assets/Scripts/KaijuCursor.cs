@@ -49,7 +49,7 @@ public class KaijuCursor : MonoBehaviour {
     void Update() {
         if (Time.timeScale > 0 && !KaijuDebug.instance.firstPlayerIsHuman) {
 			// STOP THIS SHIT!
-			if (Input.GetButtonDown("Kaiju_Pause")) {
+			if (Input.GetButtonUp("Kaiju_Pause")) {
 				pauseMenu.SetActive(true);
 			}
 
