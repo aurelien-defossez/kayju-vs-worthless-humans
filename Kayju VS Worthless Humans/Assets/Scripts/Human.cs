@@ -5,11 +5,12 @@ public class Human : MonoBehaviour {
     public float initialSpeed;
     public Human master;
     public Human slave;
-
+    public GameManager gameManager;
     public Transform BloodStain;
     public Transform Grill;
 
-    public int player;
+    public int team;
+    public int joystickID;
     public bool isPlayer = false;
     public string input_x;
     public string input_y;
@@ -28,6 +29,7 @@ public class Human : MonoBehaviour {
     
     void Awake() {
         anim = GetComponentInChildren<Animator>();
+        anim.SetTrigger("Back");
         body = GetComponent<Rigidbody2D>();
         layerStomp = LayerMask.NameToLayer("Stomp");
         layerBile = LayerMask.NameToLayer("Bile");
@@ -35,24 +37,24 @@ public class Human : MonoBehaviour {
         layerPlayer = LayerMask.NameToLayer("Player");
         ScoreBoard = GameObject.Find("GameManager");
         speed = initialSpeed;
-        anim.SetInteger("Team", player);
     }
 
     public bool IsPlayer() { return isPlayer; }
     public bool IsPNJ() { return !isPlayer; }
 
     // To pass the lead
-    public void SetPlayer(int team) {
-        SetTeam(team);
-        input_x = "Horizontal_J" + team;
-        input_y = "Vertical_J" + team;
+    public void SetPlayer(int team, int joystickID) {
         isPlayer = true;
+        SetTeam(team);
+        this.joystickID = joystickID;
+        this.input_x = "Horizontal_J" + joystickID;
+        this.input_y = "Vertical_J" + joystickID;
     }
 
     public void SetTeam(int team) {
-        this.player = team;
-        anim.SetInteger("Team",team);
-        anim.SetTrigger("TeamSwitch");
+        this.team = team;
+        this.anim.SetInteger("Team",team);
+        this.anim.SetTrigger("TeamSwitch");
     }
 
     void Update() {
@@ -112,9 +114,9 @@ public class Human : MonoBehaviour {
                     Human collidedHuman = collider.gameObject.GetComponent<Human>();
                     if (collidedHuman.IsPlayer()) {
                         master = collidedHuman.SetSlave(this);
-                        ScoreBoard.GetComponent<ScoringBoard>().Score_up(collidedHuman.player);
+                        ScoreBoard.GetComponent<ScoringBoard>().Score_up(collidedHuman.team);
                         Utils.SetLayerToChildren(this.gameObject, LayerMask.NameToLayer("Player"));
-                        SetTeam(master.player);
+                        SetTeam(master.team);
                     }
                 }
             }
@@ -131,12 +133,12 @@ public class Human : MonoBehaviour {
         if (slave != null) {
             slave.master = master;
             if (IsPlayer()) {
-                slave.SetPlayer(player);
+                slave.SetPlayer(team,joystickID);
             }
         }
         else {
             if (IsPlayer()) {
-                ScoreBoard.GetComponent<ScoringBoard>().removePlayer(player);
+                ScoreBoard.GetComponent<ScoringBoard>().removePlayer(team);
             }
         }
         if (master != null) {
