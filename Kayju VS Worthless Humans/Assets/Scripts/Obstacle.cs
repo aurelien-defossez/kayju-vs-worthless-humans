@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class Obstacle : MonoBehaviour {
-    public Sprite[] sprites;
-    public SpriteRenderer spriteRender;
+    public GameObject[] sprites;
     public Transform humanPrefab;
 
     float timer;
@@ -11,7 +10,7 @@ public class Obstacle : MonoBehaviour {
 
     void Start() {
         timer = Random.Range(1, 3);
-        spriteRender.sprite = sprites[(Random.Range(0, sprites.Length))];
+		sprites[Random.Range(0, sprites.Length)].SetActive(true);
         worldScreenHeight = (float)(Camera.main.orthographicSize);
     }
 
@@ -34,9 +33,5 @@ public class Obstacle : MonoBehaviour {
     bool generationActive() {
         // obstacle is in the game zone
         return Mathf.Abs(Camera.main.transform.position.y - this.transform.position.y) < worldScreenHeight * 0.8f;
-    }
-
-    void OnBecameInvisible() {
-        Destroy(gameObject);
     }
 }
