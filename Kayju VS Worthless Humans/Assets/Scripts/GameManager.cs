@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
+	public HumanScores humanScores;
     public Human humanPrefab;
     public Obstacle obstaclePrefab;
     public Transform scene;
@@ -15,17 +16,24 @@ public class GameManager : MonoBehaviour {
     public AudioClip[] runSounds;
     public int[] runSoundLimits;
     public Range ambientSoundInterval;
+	public Color[] playerColors;
+	public Score kaijuScore;
+	public int humanValue;
 
-    ArrayList players;
+	List<Human> players;
     Dictionary<int, int> joystickPlayerMapping;
+	List<Score> scores;
     AudioSource currentRunSound;
     float ambientSoundTimer;
+	int kaijuScoreValue;
 
-    // Use this for initialization
-    void Start() {
+	// Use this for initialization
+	void Start() {
         ambientSoundTimer = ambientSoundInterval.Rand();
         joystickPlayerMapping = new Dictionary<int, int>();
-        players = new ArrayList();
+		scores = new List<Score>();
+        players = new List<Human>();
+		kaijuScoreValue = 0;
 
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Boundaries"), LayerMask.NameToLayer("Cursor"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"));
@@ -38,22 +46,29 @@ public class GameManager : MonoBehaviour {
             if (Input.GetButtonDown("Action_J" + i)) {
                 if (!joystickPlayerMapping.ContainsKey(i)) {
                     int playerNumber = players.Count;
-                    Human player = Instantiate(humanPrefab);
+					Score score = humanScores.Register(playerColors[playerNumber]);
+
+					Human player = Instantiate(humanPrefab);
                     player.transform.position = Utils.GetScreenPosition(playerSpawnRange.Rand(), playerSpawnY);
                     player.transform.SetParent(scene);
-                    player.SetPlayer(playerNumber + 1, i);
+                    player.Init(this, playerNumber + 1, i, score);
+
                     joystickPlayerMapping[i] = playerNumber;
+					scores.Add(score);
                     players.Add(player);
 
-                    Debug.Log("Player " + playerNumber + " = Joystick " + i);
+                    Debug.Log("Player " + playerNumber + " first registered on Joystick " + i);
                 }
                 else if (players[joystickPlayerMapping[i]].Equals(null)) {
-                    Human player = Instantiate(humanPrefab);
+					int playerNumber = joystickPlayerMapping[i];
+
+					Human player = Instantiate(humanPrefab);
                     player.transform.position = Utils.GetScreenPosition(playerSpawnRange.Rand(), playerSpawnY);
                     player.transform.SetParent(scene);
-                    player.SetPlayer(joystickPlayerMapping[i] + 1, i);
-                    players[joystickPlayerMapping[i]] = player;
-                    Debug.Log("Player " + joystickPlayerMapping[i] + " = Joystick " + i);
+                    player.Init(this, playerNumber + 1, i, scores[playerNumber]);
+                    players[playerNumber] = player;
+
+                    Debug.Log("Player " + joystickPlayerMapping[i] + " registered again on Joystick " + i);
                 }
             }
         }
@@ -93,4 +108,13 @@ public class GameManager : MonoBehaviour {
             currentRunSound.Play();
         }
     }
+
+	public void SetPlayer(int playerNumber, Human player) {
+		players[playerNumber - 1] = player;
+	}
+
+	public void HumanKilled() {
+		kaijuScoreValue += humanValue;
+		kaijuScore.SetScore(kaijuScoreValue);
+	}
 }

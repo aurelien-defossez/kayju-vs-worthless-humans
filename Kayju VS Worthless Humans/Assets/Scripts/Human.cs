@@ -5,7 +5,6 @@ public class Human : MonoBehaviour {
     public float initialSpeed;
     public Human master;
     public Human slave;
-    public GameManager gameManager;
     public Transform BloodStain;
     public Transform Grill;
 
@@ -14,17 +13,19 @@ public class Human : MonoBehaviour {
     public bool isPlayer = false;
     public string input_x;
     public string input_y;
+	public float pointsPerHumanPerSecond;
 
+	GameManager gameManager;
     Animator anim;
     Rigidbody2D body;
     int layerStomp;
     int layerBile;
     int layerLaser;
     int layerPlayer;
+	Score humanScore;
+	float score;
 
-    GameObject ScoreBoard;
-
-    protected float speed;
+	protected float speed;
     protected float angle;
     
     void Awake() {
@@ -35,21 +36,24 @@ public class Human : MonoBehaviour {
         layerBile = LayerMask.NameToLayer("Bile");
         layerLaser = LayerMask.NameToLayer("Laser");
         layerPlayer = LayerMask.NameToLayer("Player");
-        ScoreBoard = GameObject.Find("GameManager");
         speed = initialSpeed;
+		score = 0;
     }
 
     public bool IsPlayer() { return isPlayer; }
     public bool IsPNJ() { return !isPlayer; }
 
     // To pass the lead
-    public void SetPlayer(int team, int joystickID) {
-        isPlayer = true;
-        SetTeam(team);
+    public void Init(GameManager gameManager, int team, int joystickID, Score humanScore) {
+		this.gameManager = gameManager;
+        this.isPlayer = true;
+		this.humanScore = humanScore;
         this.joystickID = joystickID;
         this.input_x = "Horizontal_J" + joystickID;
         this.input_y = "Vertical_J" + joystickID;
-    }
+
+		SetTeam(team);
+	}
 
     public void SetTeam(int team) {
         this.team = team;
@@ -62,8 +66,14 @@ public class Human : MonoBehaviour {
             speed += Time.deltaTime * (initialSpeed / 3);
             speed = Mathf.Min(speed, initialSpeed);
         }
+
         SetVelocity();
         SetPosture();
+
+		if (isPlayer) {
+			score += Time.deltaTime * GetLength() * pointsPerHumanPerSecond;
+			humanScore.SetScore(score);
+        }
     }
 
     public int GetLength() {
@@ -114,7 +124,6 @@ public class Human : MonoBehaviour {
                     Human collidedHuman = collider.gameObject.GetComponent<Human>();
                     if (collidedHuman.IsPlayer()) {
                         master = collidedHuman.SetSlave(this);
-                        ScoreBoard.GetComponent<ScoringBoard>().Score_up(collidedHuman.team);
                         Utils.SetLayerToChildren(this.gameObject, LayerMask.NameToLayer("Player"));
                         SetTeam(master.team);
                     }
@@ -129,22 +138,29 @@ public class Human : MonoBehaviour {
         }
     }
 
+	public void HumanKilled() {
+		if (gameManager != null) {
+			gameManager.HumanKilled();
+		} else if (master != null) {
+			master.HumanKilled();
+		}
+	}
+
     void Die_Human(int death) {
-        if (slave != null) {
+		HumanKilled();
+
+		if (slave != null) {
             slave.master = master;
             if (IsPlayer()) {
-                slave.SetPlayer(team,joystickID);
-            }
+				slave.score = score;
+				gameManager.SetPlayer(team, slave);
+                slave.Init(gameManager, team, joystickID, humanScore);
+			}
         }
-        else {
-            if (IsPlayer()) {
-                ScoreBoard.GetComponent<ScoringBoard>().removePlayer(team);
-            }
-        }
+
         if (master != null) {
             master.slave = slave;
         }
-
 
         SpriteRenderer rend = GetComponentInChildren<SpriteRenderer>();
 
@@ -152,16 +168,12 @@ public class Human : MonoBehaviour {
         rend.enabled = false;
         if (death == 1) {
             corpse = (Transform)Instantiate(BloodStain);
-        }
-        else { // (death == 2) {
+        } else { // (death == 2) {
             corpse = (Transform)Instantiate(Grill);
         }
         corpse.SetParent(this.transform.parent);
         corpse.position = this.transform.position;
 
-
-        ScoreBoard.GetComponent<ScoringBoard>().Score_up(0);
-        // Death animation goes here, parameter defines which one is played.
         Destroy(gameObject);
     }
 
@@ -188,8 +200,9 @@ public class Human : MonoBehaviour {
             Vector2 pos = new Vector2(deltaX, deltaY) * speed;
             if (Mathf.Abs(deltaX) < 0.5 && Mathf.Abs(deltaY) < 0.5) {
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            }
-            else { GetComponent<Rigidbody2D>().velocity = pos; }
+            } else {
+				GetComponent<Rigidbody2D>().velocity = pos;
+			}
         }
     }
 }

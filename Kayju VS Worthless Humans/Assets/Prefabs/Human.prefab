@@ -134,12 +134,15 @@ MonoBehaviour:
   initialSpeed: 10
   master: {fileID: 0}
   slave: {fileID: 0}
+  gameManager: {fileID: 0}
   BloodStain: {fileID: 463634, guid: b3836deeffc4878479921276fa7709e0, type: 2}
   Grill: {fileID: 418162, guid: 6acdaef55b7677b4faf727591e2e9f27, type: 2}
-  player: 0
+  team: 0
+  joystickID: 0
   isPlayer: 0
   input_x: 
   input_y: 
+  pointsPerHumanPerSecond: 100
 --- !u!114 &11471288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,9 +172,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -217,6 +218,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Size.y
       value: .75
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pointsPerHumanPerSecond
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
