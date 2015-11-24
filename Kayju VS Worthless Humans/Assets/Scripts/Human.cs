@@ -14,6 +14,7 @@ public class Human : MonoBehaviour {
     public bool isPlayer = false;
     public string input_x;
     public string input_y;
+	public float pointsPerHumanPerSecond;
 
     Animator anim;
     Rigidbody2D body;
@@ -22,6 +23,7 @@ public class Human : MonoBehaviour {
     int layerLaser;
     int layerPlayer;
 	HumanScore humanScore;
+	float score;
 
 	protected float speed;
     protected float angle;
@@ -35,6 +37,7 @@ public class Human : MonoBehaviour {
         layerLaser = LayerMask.NameToLayer("Laser");
         layerPlayer = LayerMask.NameToLayer("Player");
         speed = initialSpeed;
+		score = 0;
     }
 
     public bool IsPlayer() { return isPlayer; }
@@ -62,8 +65,14 @@ public class Human : MonoBehaviour {
             speed += Time.deltaTime * (initialSpeed / 3);
             speed = Mathf.Min(speed, initialSpeed);
         }
+
         SetVelocity();
         SetPosture();
+
+		if (isPlayer) {
+			score += Time.deltaTime * GetLength() * pointsPerHumanPerSecond;
+			humanScore.SetScore(score);
+        }
     }
 
     public int GetLength() {

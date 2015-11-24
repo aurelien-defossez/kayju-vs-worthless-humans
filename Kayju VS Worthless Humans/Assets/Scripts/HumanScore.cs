@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Globalization;
 
 public class HumanScore : MonoBehaviour {
 	public Text text;
@@ -12,12 +13,12 @@ public class HumanScore : MonoBehaviour {
 		SetScore(0);
 	}
 
-	public void Increment(int value) {
-		SetScore(score + value);
-	}
-
 	public void SetScore(int value) {
 		score = value;
-		text.text = score.ToString();
+		text.text = score.ToString("N0", CultureInfo.CreateSpecificCulture("fr-FR"));
+	}
+
+	public void SetScore(float value) {
+		SetScore((int)value);
 	}
 }
