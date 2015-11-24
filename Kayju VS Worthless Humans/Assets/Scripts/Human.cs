@@ -22,7 +22,7 @@ public class Human : MonoBehaviour {
     int layerBile;
     int layerLaser;
     int layerPlayer;
-	HumanScore humanScore;
+	Score humanScore;
 	float score;
 
 	protected float speed;
@@ -44,7 +44,7 @@ public class Human : MonoBehaviour {
     public bool IsPNJ() { return !isPlayer; }
 
     // To pass the lead
-    public void Init(GameManager gameManager, int team, int joystickID, HumanScore humanScore) {
+    public void Init(GameManager gameManager, int team, int joystickID, Score humanScore) {
 		this.gameManager = gameManager;
         this.isPlayer = true;
 		this.humanScore = humanScore;
@@ -138,14 +138,24 @@ public class Human : MonoBehaviour {
         }
     }
 
+	public void HumanKilled() {
+		if (gameManager != null) {
+			gameManager.HumanKilled();
+		} else if (master != null) {
+			master.HumanKilled();
+		}
+	}
+
     void Die_Human(int death) {
-        if (slave != null) {
+		HumanKilled();
+
+		if (slave != null) {
             slave.master = master;
             if (IsPlayer()) {
 				slave.score = score;
 				gameManager.SetPlayer(team, slave);
                 slave.Init(gameManager, team, joystickID, humanScore);
-            }
+			}
         }
 
         if (master != null) {
@@ -190,8 +200,9 @@ public class Human : MonoBehaviour {
             Vector2 pos = new Vector2(deltaX, deltaY) * speed;
             if (Mathf.Abs(deltaX) < 0.5 && Mathf.Abs(deltaY) < 0.5) {
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            }
-            else { GetComponent<Rigidbody2D>().velocity = pos; }
+            } else {
+				GetComponent<Rigidbody2D>().velocity = pos;
+			}
         }
     }
 }

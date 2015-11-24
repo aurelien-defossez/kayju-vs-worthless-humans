@@ -17,19 +17,23 @@ public class GameManager : MonoBehaviour {
     public int[] runSoundLimits;
     public Range ambientSoundInterval;
 	public Color[] playerColors;
+	public Score kaijuScore;
+	public int humanValue;
 
-    List<Human> players;
+	List<Human> players;
     Dictionary<int, int> joystickPlayerMapping;
-	List<HumanScore> scores;
+	List<Score> scores;
     AudioSource currentRunSound;
     float ambientSoundTimer;
+	int kaijuScoreValue;
 
-    // Use this for initialization
-    void Start() {
+	// Use this for initialization
+	void Start() {
         ambientSoundTimer = ambientSoundInterval.Rand();
         joystickPlayerMapping = new Dictionary<int, int>();
-		scores = new List<HumanScore>();
+		scores = new List<Score>();
         players = new List<Human>();
+		kaijuScoreValue = 0;
 
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Boundaries"), LayerMask.NameToLayer("Cursor"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"));
@@ -42,7 +46,7 @@ public class GameManager : MonoBehaviour {
             if (Input.GetButtonDown("Action_J" + i)) {
                 if (!joystickPlayerMapping.ContainsKey(i)) {
                     int playerNumber = players.Count;
-					HumanScore score = humanScores.Register(playerColors[playerNumber]);
+					Score score = humanScores.Register(playerColors[playerNumber]);
 
 					Human player = Instantiate(humanPrefab);
                     player.transform.position = Utils.GetScreenPosition(playerSpawnRange.Rand(), playerSpawnY);
@@ -107,5 +111,10 @@ public class GameManager : MonoBehaviour {
 
 	public void SetPlayer(int playerNumber, Human player) {
 		players[playerNumber - 1] = player;
+	}
+
+	public void HumanKilled() {
+		kaijuScoreValue += humanValue;
+		kaijuScore.SetScore(kaijuScoreValue);
 	}
 }
