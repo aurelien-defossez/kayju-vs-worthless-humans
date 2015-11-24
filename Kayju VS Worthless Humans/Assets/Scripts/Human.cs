@@ -5,7 +5,6 @@ public class Human : MonoBehaviour {
     public float initialSpeed;
     public Human master;
     public Human slave;
-    public GameManager gameManager;
     public Transform BloodStain;
     public Transform Grill;
 
@@ -16,6 +15,7 @@ public class Human : MonoBehaviour {
     public string input_y;
 	public float pointsPerHumanPerSecond;
 
+	GameManager gameManager;
     Animator anim;
     Rigidbody2D body;
     int layerStomp;
@@ -44,7 +44,8 @@ public class Human : MonoBehaviour {
     public bool IsPNJ() { return !isPlayer; }
 
     // To pass the lead
-    public void SetPlayer(int team, int joystickID, HumanScore humanScore) {
+    public void Init(GameManager gameManager, int team, int joystickID, HumanScore humanScore) {
+		this.gameManager = gameManager;
         this.isPlayer = true;
 		this.humanScore = humanScore;
         this.joystickID = joystickID;
@@ -141,7 +142,9 @@ public class Human : MonoBehaviour {
         if (slave != null) {
             slave.master = master;
             if (IsPlayer()) {
-                slave.SetPlayer(team, joystickID, humanScore);
+				slave.score = score;
+				gameManager.SetPlayer(team, slave);
+                slave.Init(gameManager, team, joystickID, humanScore);
             }
         }
 

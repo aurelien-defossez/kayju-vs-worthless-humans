@@ -47,13 +47,13 @@ public class GameManager : MonoBehaviour {
 					Human player = Instantiate(humanPrefab);
                     player.transform.position = Utils.GetScreenPosition(playerSpawnRange.Rand(), playerSpawnY);
                     player.transform.SetParent(scene);
-                    player.SetPlayer(playerNumber + 1, i, score);
+                    player.Init(this, playerNumber + 1, i, score);
 
                     joystickPlayerMapping[i] = playerNumber;
 					scores.Add(score);
                     players.Add(player);
 
-                    Debug.Log("Player " + playerNumber + " = Joystick " + i);
+                    Debug.Log("Player " + playerNumber + " first registered on Joystick " + i);
                 }
                 else if (players[joystickPlayerMapping[i]].Equals(null)) {
 					int playerNumber = joystickPlayerMapping[i];
@@ -61,10 +61,10 @@ public class GameManager : MonoBehaviour {
 					Human player = Instantiate(humanPrefab);
                     player.transform.position = Utils.GetScreenPosition(playerSpawnRange.Rand(), playerSpawnY);
                     player.transform.SetParent(scene);
-                    player.SetPlayer(playerNumber + 1, i, scores[playerNumber]);
+                    player.Init(this, playerNumber + 1, i, scores[playerNumber]);
                     players[playerNumber] = player;
 
-                    Debug.Log("Player " + joystickPlayerMapping[i] + " = Joystick " + i);
+                    Debug.Log("Player " + joystickPlayerMapping[i] + " registered again on Joystick " + i);
                 }
             }
         }
@@ -104,4 +104,8 @@ public class GameManager : MonoBehaviour {
             currentRunSound.Play();
         }
     }
+
+	public void SetPlayer(int playerNumber, Human player) {
+		players[playerNumber - 1] = player;
+	}
 }
