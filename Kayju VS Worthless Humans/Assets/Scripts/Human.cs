@@ -22,8 +22,6 @@ public class Human : MonoBehaviour {
     int layerLaser;
     int layerPlayer;
 
-    GameObject ScoreBoard;
-
     protected float speed;
     protected float angle;
     
@@ -35,7 +33,6 @@ public class Human : MonoBehaviour {
         layerBile = LayerMask.NameToLayer("Bile");
         layerLaser = LayerMask.NameToLayer("Laser");
         layerPlayer = LayerMask.NameToLayer("Player");
-        ScoreBoard = GameObject.Find("GameManager");
         speed = initialSpeed;
     }
 
@@ -114,7 +111,6 @@ public class Human : MonoBehaviour {
                     Human collidedHuman = collider.gameObject.GetComponent<Human>();
                     if (collidedHuman.IsPlayer()) {
                         master = collidedHuman.SetSlave(this);
-                        ScoreBoard.GetComponent<ScoringBoard>().Score_up(collidedHuman.team);
                         Utils.SetLayerToChildren(this.gameObject, LayerMask.NameToLayer("Player"));
                         SetTeam(master.team);
                     }
@@ -136,15 +132,10 @@ public class Human : MonoBehaviour {
                 slave.SetPlayer(team,joystickID);
             }
         }
-        else {
-            if (IsPlayer()) {
-                ScoreBoard.GetComponent<ScoringBoard>().removePlayer(team);
-            }
-        }
+
         if (master != null) {
             master.slave = slave;
         }
-
 
         SpriteRenderer rend = GetComponentInChildren<SpriteRenderer>();
 
@@ -152,16 +143,12 @@ public class Human : MonoBehaviour {
         rend.enabled = false;
         if (death == 1) {
             corpse = (Transform)Instantiate(BloodStain);
-        }
-        else { // (death == 2) {
+        } else { // (death == 2) {
             corpse = (Transform)Instantiate(Grill);
         }
         corpse.SetParent(this.transform.parent);
         corpse.position = this.transform.position;
 
-
-        ScoreBoard.GetComponent<ScoringBoard>().Score_up(0);
-        // Death animation goes here, parameter defines which one is played.
         Destroy(gameObject);
     }
 
