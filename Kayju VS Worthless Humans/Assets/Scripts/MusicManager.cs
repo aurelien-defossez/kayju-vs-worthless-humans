@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class MusicManager : MonoBehaviour {
     public AudioClip intro, loop;
 	public GameObject player;
 
 	private double nextEventTime;
-    private int flip = 0;
     private AudioSource[] audioSources = new AudioSource[2];
     private bool running = false;
 

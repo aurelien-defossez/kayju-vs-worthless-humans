@@ -21,8 +21,9 @@ public class Human : MonoBehaviour {
     int layerBile;
     int layerLaser;
     int layerPlayer;
+	HumanScore humanScore;
 
-    protected float speed;
+	protected float speed;
     protected float angle;
     
     void Awake() {
@@ -40,13 +41,15 @@ public class Human : MonoBehaviour {
     public bool IsPNJ() { return !isPlayer; }
 
     // To pass the lead
-    public void SetPlayer(int team, int joystickID) {
-        isPlayer = true;
-        SetTeam(team);
+    public void SetPlayer(int team, int joystickID, HumanScore humanScore) {
+        this.isPlayer = true;
+		this.humanScore = humanScore;
         this.joystickID = joystickID;
         this.input_x = "Horizontal_J" + joystickID;
         this.input_y = "Vertical_J" + joystickID;
-    }
+
+		SetTeam(team);
+	}
 
     public void SetTeam(int team) {
         this.team = team;
@@ -129,7 +132,7 @@ public class Human : MonoBehaviour {
         if (slave != null) {
             slave.master = master;
             if (IsPlayer()) {
-                slave.SetPlayer(team,joystickID);
+                slave.SetPlayer(team, joystickID, humanScore);
             }
         }
 
