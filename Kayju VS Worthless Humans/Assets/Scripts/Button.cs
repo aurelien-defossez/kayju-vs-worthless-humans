@@ -19,9 +19,7 @@ public class Button : MonoBehaviour {
 		active = true;
 		isNeutral = false;
 
-        Transform player = gameObject.transform.FindChild("Selection");
-        if (player != null)
-            player.gameObject.GetComponent<AudioSource>().Play();
+		GetComponentInChildren<AudioSource>().Play();
 	}
 
 	public void Deactivate() {

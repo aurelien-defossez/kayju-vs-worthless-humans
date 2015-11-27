@@ -67,7 +67,7 @@ AudioMixerController:
     - 69d8b4c249237134780926587bd38202
     - 755972d055c5cd740afbf3d9f75788df
     name: Amb
-  m_CurrentViewIndex: 2
+  m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500003}
 --- !u!243 &24300001
 AudioMixerGroupController:

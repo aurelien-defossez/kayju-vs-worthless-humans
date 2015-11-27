@@ -73,6 +73,11 @@ public class Stomp : MonoBehaviour {
 	}
 
 	[TimelineMethod]
+	public void BlockEnd(TimelineCall options) {
+		blockCollider.enabled = false;
+	}
+
+	[TimelineMethod]
     public void Shutdown(TimelineCall options) {
         Destroy(gameObject);
     }
