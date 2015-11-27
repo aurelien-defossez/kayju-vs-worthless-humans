@@ -18,6 +18,10 @@ public class Button : MonoBehaviour {
 		activeSprite.enabled = true;
 		active = true;
 		isNeutral = false;
+
+        Transform player = gameObject.transform.FindChild("Selection");
+        if (player != null)
+            player.gameObject.GetComponent<AudioSource>().Play();
 	}
 
 	public void Deactivate() {
